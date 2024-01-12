@@ -22,9 +22,9 @@ nite = 1000000
 nbur = 200000
 nthi = 1000
 
-nite = 100
-nbur = 50
-nthi = 5
+# nite = 100
+# nbur = 50
+# nthi = 5
 
 ### Set priors for germination models (as many prior as random factors)
 
