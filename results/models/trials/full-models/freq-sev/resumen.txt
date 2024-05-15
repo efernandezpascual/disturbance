@@ -1,7 +1,0 @@
-  -> More or less random factors: effect sizes and significance do not change
-  -> More or less random factors: with more RF, some RF have large main effects and CI
-  -> Q0 (all spp)
-  -> Q1 (only tree spp)
-  -> Q2 (only tree spp and no gymnosperms)
-  -> Q1 = Q2
-  -> Q0 != Q2 => in Q0 disturbance frequency has a positive main effect, in Q1-Q2 it doesn't
