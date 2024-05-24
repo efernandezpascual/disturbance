@@ -1,4 +1,4 @@
-library(tidiverse); library(phangorn)
+library(tidyverse); library(phangorn)
 
 ### Germination dataset for models
 

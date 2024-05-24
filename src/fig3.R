@@ -2,6 +2,12 @@ library(tidyverse)
 
 ### Summary table
 
+load(file = "results/models/obj1/m1.Rdata")
+load(file = "results/models/obj2/m2.LL.Rdata")
+load(file = "results/models/obj2/m2.LH.Rdata")
+load(file = "results/models/obj2/m2.HL.Rdata")
+load(file = "results/models/obj2/m2.HH.Rdata")
+
 rbind(
   summary(m2.LL)$solutions %>%
     data.frame %>%
@@ -44,7 +50,7 @@ rbind(
                        "Low stress\nHigh disturbance" = "m2.LH",
                        "High stress\nHigh disturbance" = "m2.HH")) %>%
   filter(! Effect == "Intercept") %>%
-  #filter(pMCMC <= 0.05) %>%
+  filter(pMCMC <= 0.05) %>%
   ggplot(aes(y = Model, x = post.mean,
              xmin = l.95..CI, xmax = u.95..CI,
              color = Model)) +
