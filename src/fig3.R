@@ -85,9 +85,9 @@ rbind(
                                              "skyblue",
                                              "limegreen")),
         plot.margin = unit(c(0.1,0.1,0.1,0.1), "cm")) ->
-  f3;f3
+  f4;f4
 
 ## Export
 
-ggsave(f3, file = "results/figures/fig3.png", bg = "white",
+ggsave(f4, file = "results/figures/fig4.png", bg = "white",
        path = NULL, scale = 1, width = 180, height = 65, units = "mm", dpi = 600)

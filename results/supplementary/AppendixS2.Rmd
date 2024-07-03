@@ -1,0 +1,61 @@
+---
+title: "Appendix S2 Model output summaries for the MCMCglmms."
+output:
+  bookdown::pdf_document2:
+    reference_docx: template.docx
+    number_sections: false
+    toc: false
+link-citations: yes
+always_allow_html: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r message = FALSE, echo = FALSE, warning = FALSE}
+knitr::knit_hooks$set(inline = function(x) {
+  prettyNum(x, big.mark = ",")
+})
+```
+
+```{r message = FALSE, echo = FALSE, warning = FALSE}
+library(tidyverse)
+load(file = "../models/obj1/m1.Rdata")
+load(file = "../models/obj2/m2.LL.Rdata")
+load(file = "../models/obj2/m2.HL.Rdata")
+load(file = "../models/obj2/m2.LH.Rdata")
+load(file = "../models/obj2/m2.HH.Rdata")
+```
+
+## 1. Model for the first prediction (delayed seed germination should correlate with species adapted to high stress and low disturbance)
+
+```{r message = FALSE, echo = FALSE, warning = FALSE}
+summary(m1)
+```
+
+## 2. Models for the second prediction (the specific germination cues driving delayed seed germination should vary depending on the species preferences for stress and disturbance)
+
+### 2.1 Model for the low stress - low disturbance group
+
+```{r message = FALSE, echo = FALSE, warning = FALSE}
+summary(m2.LL)
+```
+
+### 2.2 Model for the high stress - low disturbance group
+
+```{r message = FALSE, echo = FALSE, warning = FALSE}
+summary(m2.HL)
+```
+
+### 2.3 Model for the low stress - high disturbance group
+
+```{r message = FALSE, echo = FALSE, warning = FALSE}
+summary(m2.LH)
+```
+
+### 2.4 Model for the high stress - high disturbance group
+
+```{r message = FALSE, echo = FALSE, warning = FALSE}
+summary(m2.HH)
+```

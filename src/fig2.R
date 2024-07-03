@@ -42,8 +42,8 @@ cis %>%
   ggplot(aes(Group, germination.mean, fill = Group)) +
   geom_jitter(data = pts, width = .3, aes(color = Group), size = 1, alpha = .3) +
   geom_bar(stat = "identity", position = "dodge", color = "black", alpha = .5) +
-  geom_errorbar(aes(ymin = germination.lower, ymax = germination.upper), width = .1,
-                position = position_dodge(.9)) +
+  # geom_errorbar(aes(ymin = germination.lower, ymax = germination.upper), width = .1,
+  #               position = position_dodge(.9)) +
   scale_fill_manual(values = c(
                       "limegreen",
                       "skyblue",
@@ -80,7 +80,7 @@ cis %>%
                                      "darkmagenta",
                                      "gold")),
         plot.margin = unit(c(0.1,0.1,0.1,0.1), "cm")) +
-  geom_hline(yintercept = 0) -> f2; f2
+  geom_hline(yintercept = 0) -> f3; f3
 
-ggsave(f2, file = "results/figures/fig2.png", bg = "white", 
+ggsave(f3, file = "results/figures/fig3.png", bg = "white", 
        path = NULL, scale = 1, width = 180, height = 65, units = "mm", dpi = 600)

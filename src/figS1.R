@@ -182,10 +182,10 @@ eunis %>%
 
 ### Merge
 
-gridExtra::grid.arrange(f1, f2, nrow = 1) -> fS1A
-gridExtra::grid.arrange(f3, f4, nrow = 1) -> fS1B
-gridExtra::grid.arrange(fS1A, fS1B, nrow = 2) -> fS1
+gridExtra::grid.arrange(f1, f2, nrow = 1) -> f2A
+gridExtra::grid.arrange(f3, f4, nrow = 1) -> f2B
+gridExtra::grid.arrange(fS1A, fS1B, nrow = 2) -> f2
 
-ggsave(fS1, file = "results/supplementary/figS1.png", bg = "white",
+ggsave(f2, file = "results/supplementary/figS1.png", bg = "white",
        path = NULL, scale = 1, width = 180, height = 150, units = "mm", dpi = 600)
 

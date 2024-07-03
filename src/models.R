@@ -21,6 +21,10 @@ nite = 1000000
 nbur = 200000
 nthi = 1000
 
+nite = 500000
+nbur = 50000
+nthi = 50
+
 # nite = 100
 # nbur = 10
 # nthi = 5
@@ -52,7 +56,25 @@ priors <- list(R = list(V = 1, nu = 50),
 #                    verbose = FALSE, saveX = FALSE, saveZ = FALSE, saveXL = FALSE, pr = FALSE, pl = FALSE) -> m1
 # 
 # save(m1, file = "results/models/obj1/m1.Rdata")
-# 
+
+### Objective 1 (compare four groups)
+
+germination %>%
+  mutate(Group = fct_relevel(Group, "Low stress - Low disturbance")) %>%
+  select(animal, species, datasourceGUID, seedlotGUID, nseeds, ngerminated, Group) %>%
+  na.omit -> germinationDF
+
+MCMCglmm::MCMCglmm(cbind(ngerminated, nseeds - ngerminated) ~ Group,
+                   random = ~ animal +
+                     species +
+                     datasourceGUID +
+                     seedlotGUID,
+                   family = "multinomial2", pedigree = nnls_orig, prior = priors, data = germinationDF,
+                   nitt = nite, thin = nthi, burnin = nbur,
+                   verbose = FALSE, saveX = FALSE, saveZ = FALSE, saveXL = FALSE, pr = FALSE, pl = FALSE) -> m1B
+
+save(m1B, file = "results/models/obj1/m1B.Rdata")
+
 # ### Objective 2 model LL (germination drivers in low stress - low disturbance group)
 # 
 # germination %>%
@@ -61,7 +83,7 @@ priors <- list(R = list(V = 1, nu = 50),
 #          temperature, alternating, light, cs, scarified) %>%
 #   na.omit -> germinationDF
 # 
-# MCMCglmm::MCMCglmm(cbind(ngerminated, nseeds - ngerminated) ~  
+# MCMCglmm::MCMCglmm(cbind(ngerminated, nseeds - ngerminated) ~
 #                      scale(temperature) +
 #                      scale(alternating) +
 #                      scale(light) +
@@ -85,7 +107,7 @@ priors <- list(R = list(V = 1, nu = 50),
 #          temperature, alternating, light, cs, scarified) %>%
 #   na.omit -> germinationDF
 # 
-# MCMCglmm::MCMCglmm(cbind(ngerminated, nseeds - ngerminated) ~  
+# MCMCglmm::MCMCglmm(cbind(ngerminated, nseeds - ngerminated) ~
 #                      scale(temperature) +
 #                      scale(alternating) +
 #                      scale(light) +
@@ -109,7 +131,7 @@ priors <- list(R = list(V = 1, nu = 50),
 #          temperature, alternating, light, cs, scarified) %>%
 #   na.omit -> germinationDF
 # 
-# MCMCglmm::MCMCglmm(cbind(ngerminated, nseeds - ngerminated) ~  
+# MCMCglmm::MCMCglmm(cbind(ngerminated, nseeds - ngerminated) ~
 #                      scale(temperature) +
 #                      scale(alternating) +
 #                      scale(light) +
@@ -133,7 +155,7 @@ priors <- list(R = list(V = 1, nu = 50),
 #          temperature, alternating, light, cs, scarified) %>%
 #   na.omit -> germinationDF
 # 
-# MCMCglmm::MCMCglmm(cbind(ngerminated, nseeds - ngerminated) ~  
+# MCMCglmm::MCMCglmm(cbind(ngerminated, nseeds - ngerminated) ~
 #                      scale(temperature) +
 #                      scale(alternating) +
 #                      scale(light) +
@@ -150,6 +172,10 @@ priors <- list(R = list(V = 1, nu = 50),
 # save(m2.HH, file = "results/models/obj2/m2.HH.Rdata")
 
 ### Model diagnostics
+
+load(file = "results/models/obj1/m1B.Rdata")
+plot(m1B) # Model diagnostics
+summary(m1B) # Model summary
 
 load(file = "results/models/obj1/m1.Rdata")
 plot(m1) # Model diagnostics
