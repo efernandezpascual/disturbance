@@ -73,8 +73,8 @@ rbind(
                                 "Wetlands - Low disturbance" = "m2.7",
                                 "Cold stress - High disturbance" = "m2.6",
                                 "Cold stress - Low disturbance" = "m2.5",
-                                "Water stress - High disturbance" = "m2.4",
-                                            "Water stress - Low disturbance" =  "m2.3",
+                                "Drought stress - High disturbance" = "m2.4",
+                                            "Drought stress - Low disturbance" =  "m2.3",
                                 "Low stress - High disturbance" = "m2.2",
                                 "Low stress - Low disturbance" = "m2.1")) %>%
   filter(! Effect == "Intercept") %>%
@@ -105,7 +105,7 @@ rbind(
         legend.spacing.y = unit(0, "mm"),
         legend.text = element_text(size = 10), 
         panel.background = element_rect(color = "black", fill = NULL),
-        strip.text = element_text(size = 9.8, hjust = 0, margin = margin(l = 0, b = 4)),
+        strip.text = element_text(size = 9.8, margin = margin(l = 0, b = 4)),
         #strip.text = element_blank(),
         plot.title = element_text(size = 10),
         axis.title = element_text(size = 10),

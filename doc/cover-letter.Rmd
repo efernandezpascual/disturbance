@@ -1,0 +1,36 @@
+---
+title: "Cover letter: Delayed seed germination to cope with environmental stress and disturbance in the European flowering plants"
+output: 
+  bookdown::word_document2:
+    reference_docx: template.docx
+    number_sections: false
+bibliography: refs.bib
+csl: new-phytologist.csl
+link-citations: yes
+always_allow_html: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Dear Editors,
+
+Dear Editors,
+As requested by the author guidelines, please find below our answers to the three submission questions:
+What hypotheses or questions does this work address?
+This work focuses on delayed seed germination, a widespread but neglected feature of flowering plants that integrates dormancy and germination phenology concepts. We test the hypothesis that environmental stress and disturbance determine the occurrence of delayed seed germination across the European flora and explore the cues that cause germination delay.
+How does this work advance our current understanding of plant science?
+Delayed seed germination is more likely in species adapted to cold or disturbance, but less so in species adapted to drought. Competition also promotes delayed seed germination. The regeneration niche of angiosperms shows a deep divide between those adapted to cold and those adapted to drought. 
+Why is this work important and timely?
+This work advances the ongoing debate on seed macroecology [1-8] by unifying the concepts of externally and internally controlled germination under the integrative concept of delayed seed germination. Using the large SeedArc database [9], we provide a mechanistic explanation of why and how seeds choose not to germinate.
+
+1.	Saatkamp, A., et al., A research agenda for seed-trait functional ecology. New Phytologist, 2019. 221(4): p. 1764-1775.
+2.	Pausas, J.G., et al., Bet-hedging and best-bet strategies shape seed dormancy. New Phytologist, 2022. 236(4): p. 1232-1236.
+3.	Pausas, J.G., et al., The need for mechanistic explanations in (seed) ecology. New Phytologist, 2024. 242(6): p. 2394-2398.
+4.	Rosbakh, S., et al., Large dataset analyses advance knowledge of seed ecology and evolutionary biology. New Phytologist, 2024. 242(6): p. 2399-2400.
+5.	Rubio de Casas, R., et al., Global biogeography of seed dormancy is determined by seasonality and seed size: a case study in the legumes. New Phytologist, 2017. 214(4): p. 1527-1536.
+6.	Zhang, Y., et al., Seed dormancy in space and time: global distribution, paleoclimatic and present climatic drivers, and evolutionary adaptations. New Phytologist, 2022. 234(5): p. 1770-1781.
+7.	Rosbakh, S., et al., Global seed dormancy patterns are driven by macroclimate but not fire regime. New Phytologist, 2023. 240(2): p. 555-564.
+8.	Fernández-Pascual, E., et al., The seed germination spectrum of alpine plants: a global meta-analysis. New Phytologist, 2021. 229: p. 3573-3586.
+9.	Fernández-Pascual, E., et al., SeedArc, a global archive of primary seed germination data. New Phytologist, 2023. 240(2): p. 466-470.

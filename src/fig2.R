@@ -17,9 +17,9 @@ read.csv("data/disturbance-indicators.csv", fileEncoding = "latin1") %>%
   mutate(S = ifelse(Severity <= median(Severity, na.rm = TRUE), "Low", "High")) %>%
   mutate(Stress = ifelse(M == "High" & T == "Low", "Cold stress", NA)) %>%
   mutate(Stress = ifelse(M == "High" & T == "Mid", "Wetlands", Stress)) %>%
-  mutate(Stress = ifelse(M == "Low" & T == "High", "Water stress", Stress)) %>%
+  mutate(Stress = ifelse(M == "Low" & T == "High", "Drought stress", Stress)) %>%
   mutate(Stress = ifelse(M == "Low" & T == "Low", "Cold stress", Stress)) %>%
-  mutate(Stress = ifelse(M == "Low" & T == "Mid", "Water stress", Stress)) %>%
+  mutate(Stress = ifelse(M == "Low" & T == "Mid", "Drought stress", Stress)) %>%
   mutate(Stress = ifelse(M == "Mid" & T == "High", "Low stress", Stress)) %>%
   mutate(Stress = ifelse(M == "Mid" & T == "Low", "Cold stress", Stress)) %>%
   mutate(Stress = ifelse(M == "Mid" & T == "Mid", "Low stress", Stress))  %>% 
@@ -32,14 +32,14 @@ read.csv("data/disturbance-indicators.csv", fileEncoding = "latin1") %>%
   summarise(ngerminated = sum(ngerminated), nseeds = sum(nseeds)) %>%
   do(bi(.)) %>%
   mutate(Group = fct_relevel(Group, "Low stress - Low disturbance", "Low stress - High disturbance",
-                             "Water stress - Low disturbance", "Water stress - High disturbance",
+                             "Drought stress - Low disturbance", "Drought stress - High disturbance",
                              "Cold stress - Low disturbance", "Cold stress - High disturbance",
                              "Wetlands - Low disturbance", "Wetlands - High disturbance"))%>%
   mutate(Group = fct_recode(Group, 
                             "(1) Low stress - Low disturbance" = "Low stress - Low disturbance", 
                             "(2) Low stress - High disturbance" = "Low stress - High disturbance",
-                            "(3) Water stress - Low disturbance" = "Water stress - Low disturbance", 
-                            "(4) Water stress - High disturbance" = "Water stress - High disturbance",
+                            "(3) Drought stress - Low disturbance" = "Drought stress - Low disturbance", 
+                            "(4) Drought stress - High disturbance" = "Drought stress - High disturbance",
                             "(5) Cold stress - Low disturbance" = "Cold stress - Low disturbance", 
                             "(6) Cold stress - High disturbance" = "Cold stress - High disturbance",
                             "(7) Wetlands - Low disturbance" = "Wetlands - Low disturbance", 
@@ -56,9 +56,9 @@ read.csv("data/disturbance-indicators.csv", fileEncoding = "latin1") %>%
   mutate(S = ifelse(Severity <= median(Severity, na.rm = TRUE), "Low", "High")) %>%
   mutate(Stress = ifelse(M == "High" & T == "Low", "Cold stress", NA)) %>%
   mutate(Stress = ifelse(M == "High" & T == "Mid", "Wetlands", Stress)) %>%
-  mutate(Stress = ifelse(M == "Low" & T == "High", "Water stress", Stress)) %>%
+  mutate(Stress = ifelse(M == "Low" & T == "High", "Drought stress", Stress)) %>%
   mutate(Stress = ifelse(M == "Low" & T == "Low", "Cold stress", Stress)) %>%
-  mutate(Stress = ifelse(M == "Low" & T == "Mid", "Water stress", Stress)) %>%
+  mutate(Stress = ifelse(M == "Low" & T == "Mid", "Drought stress", Stress)) %>%
   mutate(Stress = ifelse(M == "Mid" & T == "High", "Low stress", Stress)) %>%
   mutate(Stress = ifelse(M == "Mid" & T == "Low", "Cold stress", Stress)) %>%
   mutate(Stress = ifelse(M == "Mid" & T == "Mid", "Low stress", Stress))  %>% 
@@ -70,14 +70,14 @@ read.csv("data/disturbance-indicators.csv", fileEncoding = "latin1") %>%
   mutate(germination.mean = ngerminated / nseeds) %>%
   select(Group, germination.mean) %>%
   mutate(Group = fct_relevel(Group, "Low stress - Low disturbance", "Low stress - High disturbance",
-                             "Water stress - Low disturbance", "Water stress - High disturbance",
+                             "Drought stress - Low disturbance", "Drought stress - High disturbance",
                              "Cold stress - Low disturbance", "Cold stress - High disturbance",
                              "Wetlands - Low disturbance", "Wetlands - High disturbance")) %>%
   mutate(Group = fct_recode(Group, 
                             "(1) Low stress - Low disturbance" = "Low stress - Low disturbance", 
                             "(2) Low stress - High disturbance" = "Low stress - High disturbance",
-                            "(3) Water stress - Low disturbance" = "Water stress - Low disturbance", 
-                            "(4) Water stress - High disturbance" = "Water stress - High disturbance",
+                            "(3) Drought stress - Low disturbance" = "Drought stress - Low disturbance", 
+                            "(4) Drought stress - High disturbance" = "Drought stress - High disturbance",
                             "(5) Cold stress - Low disturbance" = "Cold stress - Low disturbance", 
                             "(6) Cold stress - High disturbance" = "Cold stress - High disturbance",
                             "(7) Wetlands - Low disturbance" = "Wetlands - Low disturbance", 
@@ -90,6 +90,7 @@ cis %>%
   group_by(Group) %>%
   summarise(ngerminated = sum(ngerminated), nseeds = sum(nseeds)) %>%
   mutate(number = as.numeric(Group)) %>%
+  mutate(germination.mean = ngerminated/nseeds) %>%
   ggplot(aes(as.factor(number), germination.mean, fill = Group)) +
   geom_jitter(data = pts, width = .3, aes(color = Group), size = 1, alpha = .3, key_glyph = "rect") +
   geom_bar(stat = "identity", position = "dodge", color = "black", alpha = .5) +
@@ -158,12 +159,12 @@ summary(m1.B)$solutions %>%
                              "High disturbance",
                              "Wetlands", 
                              "Cold stress",
-                             "Water stress")) %>%
+                             "Drought stress")) %>%
   mutate(Group = fct_recode(Group,
                             "High\ndisturbance" = "High disturbance",
                             "Wetlands" = "Wetlands", 
                             "Cold\nstress" = "Cold stress",
-                            "Water\nstress"= "Water stress")) %>%
+                            "Water\nstress"= "Drought stress")) %>%
   mutate(number = as.numeric(as.factor(Group))) %>%
   # filter(pMCMC <= 0.05) %>%
   ggplot(aes(y = Group, x = post.mean,
@@ -174,7 +175,7 @@ summary(m1.B)$solutions %>%
   labs(y = "Stress - disturbance species groups") +
   ggtitle(label = "(B) Effect sizes") + 
   geom_errorbarh(height = .3) +
-  geom_vline(xintercept = 0, linetype = "dashed", color = "limegreen", size = 1) +
+  geom_vline(xintercept = 0, linetype = "dashed", color = "black", size = 1) +
   scale_color_manual(values = c("grey10",
                                 "skyblue",
                                 "darkmagenta",

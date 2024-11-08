@@ -11,9 +11,9 @@ read.csv("data/disturbance-indicators.csv", fileEncoding = "latin1") %>%
   mutate(S = ifelse(Severity <= median(Severity, na.rm = TRUE), "Low", "High")) %>%
   mutate(Stress = ifelse(M == "High" & T == "Low", "Cold stress", NA)) %>%
   mutate(Stress = ifelse(M == "High" & T == "Mid", "Wetlands", Stress)) %>%
-  mutate(Stress = ifelse(M == "Low" & T == "High", "Water stress", Stress)) %>%
+  mutate(Stress = ifelse(M == "Low" & T == "High", "Drought stress", Stress)) %>%
   mutate(Stress = ifelse(M == "Low" & T == "Low", "Cold stress", Stress)) %>%
-  mutate(Stress = ifelse(M == "Low" & T == "Mid", "Water stress", Stress)) %>%
+  mutate(Stress = ifelse(M == "Low" & T == "Mid", "Drought stress", Stress)) %>%
   mutate(Stress = ifelse(M == "Mid" & T == "High", "Low stress", Stress)) %>%
   mutate(Stress = ifelse(M == "Mid" & T == "Low", "Cold stress", Stress)) %>%
   mutate(Stress = ifelse(M == "Mid" & T == "Mid", "Low stress", Stress))  %>% 
@@ -39,7 +39,7 @@ groups %>%
   mutate(M = fct_relevel(M, "Low", "Mid", "High")) %>%
   mutate(T = fct_relevel(T, "Low", "Mid", "High")) %>%
   mutate(Stress = fct_relevel(Stress, "Low stress",
-                             "Water stress",
+                             "Drought stress",
                              "Cold stress",
                              "Wetlands")) %>%
   ggplot(aes(T, M, fill = Stress)) +
@@ -118,7 +118,7 @@ groups %>%
         plot.title = element_text(size = 11),
         axis.title = element_text(size = 10),
         axis.text = element_text(size = 8, color = "black"),
-        plot.margin = unit(c(0.1,0.1,0.1,0.35), "cm")) +
+        plot.margin = unit(c(0.1,0.1,0.1,0.65), "cm")) +
   scale_color_manual(values = c("grey40",
                                 "grey10")) +
   scale_fill_manual(values = c("grey40",
@@ -134,7 +134,7 @@ groups %>%
                                      "Disturbance frequency indicator" = "Frequency", 
                                      "Disturbance severity indicator" = "Severity")) %>%
   mutate(Group = fct_relevel(Group, "Low stress - Low disturbance", "Low stress - High disturbance",
-                             "Water stress - Low disturbance", "Water stress - High disturbance",
+                             "Drought stress - Low disturbance", "Drought stress - High disturbance",
                              "Cold stress - Low disturbance", "Cold stress - High disturbance",
                              "Wetlands - Low disturbance", "Wetlands - High disturbance")) %>%
   mutate(number = as.numeric(Group)) %>%
@@ -190,14 +190,14 @@ pca1$var$contrib
 pca1$ind$coord %>%
   cbind(groups) %>%
   mutate(Group = fct_relevel(Group, "Low stress - Low disturbance", "Low stress - High disturbance",
-                             "Water stress - Low disturbance", "Water stress - High disturbance",
+                             "Drought stress - Low disturbance", "Drought stress - High disturbance",
                              "Cold stress - Low disturbance", "Cold stress - High disturbance",
                              "Wetlands - Low disturbance", "Wetlands - High disturbance")) %>%
   mutate(Group = fct_recode(Group, 
                             "(1) Low stress - Low disturbance" = "Low stress - Low disturbance", 
                             "(2) Low stress - High disturbance" = "Low stress - High disturbance",
-                            "(3) Water stress - Low disturbance" = "Water stress - Low disturbance", 
-                            "(4) Water stress - High disturbance" = "Water stress - High disturbance",
+                            "(3) Drought stress - Low disturbance" = "Drought stress - Low disturbance", 
+                            "(4) Drought stress - High disturbance" = "Drought stress - High disturbance",
                             "(5) Cold stress - Low disturbance" = "Cold stress - Low disturbance", 
                             "(6) Cold stress - High disturbance" = "Cold stress - High disturbance",
                             "(7) Wetlands - Low disturbance" = "Wetlands - Low disturbance", 
