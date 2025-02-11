@@ -1,0 +1,35 @@
+README.md
+================
+
+# Delayed seed germination to cope with environmental stress and disturbance
+
+This repository stores all the information related to the manuscript
+*Delayed seed germination to cope with environmental stress and
+disturbance*, including the datasets, the scripts to perform data
+cleaning and analysis, and the `Rmarkdown` files to create the
+manuscript.
+
+## Contents
+
+This repository is organised following the advice of [Wilson et
+al. 2017](https://doi.org/10.1371/journal.pcbi.1005510) for recording
+and storing research projects.
+
+The following materials are available in the folders of this repository:
+
+- `data` Data files including the germination dataset, the ecological
+  indicators and the phylogenetic tree.
+- `src` Scripts in `R` language to perform the analyses and produce the
+  figures of the manuscript.
+- `results` Output of the `R` scripts, including figures and model
+  outputs.
+- `doc` Files to create the manuscript using `Rmarkdown`.
+
+## Citation
+
+Please cite the repository, datasets and article as:
+
+> Eduardo Fernández-Pascual; Angelino Carta; Sergey Rosbakh; Borja
+> Jiménez-Alfaro; Diana María Cruz-Tejada; Markus Wagner; Lorenzo
+> Pinzani; Katalin Lukács; Shyam S. Phartyal. (2025) Delayed seed
+> germination to cope with environmental stress and disturbance.

@@ -1,5 +1,5 @@
 ---
-title: "Appendix S1 Model output summaries for the MCMCglmms."
+title: "Appendix S1 Geographical, phylogenetic and habitat representativeness of the seed germination dataset."
 output:
   bookdown::pdf_document2:
     reference_docx: template.docx
@@ -19,71 +19,10 @@ knitr::knit_hooks$set(inline = function(x) {
 })
 ```
 
-```{r message = FALSE, echo = FALSE, warning = FALSE}
-library(tidyverse)
-load(file = "../models/obj1/m1.B.Rdata")
-load(file = "../models/obj2/m2.1.Rdata")
-load(file = "../models/obj2/m2.2.Rdata")
-load(file = "../models/obj2/m2.3.Rdata")
-load(file = "../models/obj2/m2.4.Rdata")
-load(file = "../models/obj2/m2.5.Rdata")
-load(file = "../models/obj2/m2.6.Rdata")
-load(file = "../models/obj2/m2.7.Rdata")
-load(file = "../models/obj2/m2.8.Rdata")
-```
+## Representativeness of the germination dataset
 
-## 1. Model for the first prediction (delayed seed germination should correlate with species adapted to high stress and low disturbance)
+The final germination dataset contained 14,357 experimental records obtained from 133 sources (i.e. research groups providing their primary germination data or published references from which data had been extracted). Experiments had been conducted with a total of 648,679 seeds from 3,185 seed lots. Maximum germination by seed lot was high: 95% of the seed lots had more than 70% max germination, with the average being 94%. Seed lots originated from Europe and neighboring regions, with 39 countries represented in the dataset (**Fig. 1**). The dataset included 997 species from 80 angiosperm families, representing the major clades of the angiosperms (**Fig. 1**). The dataset represented all the major European habitat types, considering both the numbers of species (**Fig. 1**) and the number of records (**Fig. 1**). Most species and records came from zonal and non-anthropogenic habitat types (i.e. forests, shrublands and grasslands; **Fig. 1**). Experiments used seeds that had been scarified before incubation in 2,974 records (21%); and seeds that had been cold-stratified before incubation in 2,252 records (16%). The average incubation temperatures of the experiments ranged from 0 to 40 ºC, with an average of 18 ºC, and 95% of the tests in the temperature range 6-26 ºC. Alternating temperatures had been used in 6,234 records (43%) and dark conditions in 1,166 records (8%).
 
-```{r message = FALSE, echo = FALSE, warning = FALSE}
-summary(m1.B)
-```
-
-## 2. Models for the second prediction (the specific germination cues driving delayed seed germination should vary depending on the species preferences for stress and disturbance)
-
-### 2.1 Model for the low stress - low disturbance group
-
-```{r message = FALSE, echo = FALSE, warning = FALSE}
-summary(m2.1)
-```
-
-### 2.2 Model for the low stress - high disturbance group
-
-```{r message = FALSE, echo = FALSE, warning = FALSE}
-summary(m2.2)
-```
-
-### 2.3 Model for the water stress - low disturbance group
-
-```{r message = FALSE, echo = FALSE, warning = FALSE}
-summary(m2.3)
-```
-
-### 2.4 Model for the water stress - high disturbance group
-
-```{r message = FALSE, echo = FALSE, warning = FALSE}
-summary(m2.4)
-```
-
-### 2.5 Model for the cold stress - low disturbance group
-
-```{r message = FALSE, echo = FALSE, warning = FALSE}
-summary(m2.5)
-```
-
-### 2.6 Model for the cold stress - high disturbance group
-
-```{r message = FALSE, echo = FALSE, warning = FALSE}
-summary(m2.6)
-```
-
-### 2.7 Model for the wetlands - low disturbance group
-
-```{r message = FALSE, echo = FALSE, warning = FALSE}
-summary(m2.7)
-```
-
-### 2.8 Model for the wetlands - high disturbance group
-
-```{r message = FALSE, echo = FALSE, warning = FALSE}
-summary(m2.8)
+```{r figS1, out.width = "450px", echo = FALSE, fig.cap = "Representativeness of the germination dataset. (A) Original coordinates of the seed collections used for the experiments that produced the germination dataset. (B) Phylogenetic tree of the species in the germination dataset, colored by the major angiosperms clades. (C) Number of species in the germination dataset that are characteristic species of the major European habitat types. (D) Number of records in the germination dataset belonging to species that are characteristic species of the major European habitat types. Habitats and characteristic species follow the EUNIS pan-European habitat classification system (https://doi.org/10.1111/avsc.12519)."}
+knitr::include_graphics("figS1.png")
 ```

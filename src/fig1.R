@@ -11,6 +11,7 @@ read.csv("data/disturbance-indicators.csv", fileEncoding = "latin1") %>%
   mutate(S = ifelse(Severity <= median(Severity, na.rm = TRUE), "Low", "High")) %>%
   mutate(Stress = ifelse(M == "High" & T == "Low", "Cold stress", NA)) %>%
   mutate(Stress = ifelse(M == "High" & T == "Mid", "Wetlands", Stress)) %>%
+  mutate(Stress = ifelse(M == "High" & T == "High", "Wetlands", Stress)) %>%
   mutate(Stress = ifelse(M == "Low" & T == "High", "Drought stress", Stress)) %>%
   mutate(Stress = ifelse(M == "Low" & T == "Low", "Cold stress", Stress)) %>%
   mutate(Stress = ifelse(M == "Low" & T == "Mid", "Drought stress", Stress)) %>%
@@ -27,14 +28,14 @@ read.csv("data/disturbance-indicators.csv", fileEncoding = "latin1") %>%
 groups %>%
   group_by(M, T, Stress) %>%
   tally %>%
-  cbind(Label = c("Arctoalpine mires\n22 species", 
-                  "Wetlands\n118 species", 
-                  "Thermomedit.\n110 species", 
-                  "Oromedit.\n23 species", 
-                  "Mediterranean\n304 species", 
-                  "Warm temperate\n27 species", 
-                  "Arctoalpine\n140 species", 
-                  "Mesophilous\n613 species")) %>%
+  cbind(Label = c("Arctoalpine mires\n12 species", 
+                  "Wetlands\n69 species", 
+                  "Thermomedit.\n83 species", 
+                  "Oromedit.\n17 species", 
+                  "Mediterranean\n237 species", 
+                  "Warm temperate\n21 species", 
+                  "Arctoalpine\n105 species", 
+                  "Mesophilous\n453 species")) %>%
   group_by() %>%
   mutate(M = fct_relevel(M, "Low", "Mid", "High")) %>%
   mutate(T = fct_relevel(T, "Low", "Mid", "High")) %>%
@@ -69,24 +70,24 @@ groups %>%
         axis.title = element_text(size = 10),
         axis.text = element_text(size = 8, color = "black"),
         plot.margin = unit(c(0.1,0.1,0.1,0.1), "cm")) +
-  scale_color_manual(values = c("limegreen",
-                               "gold2",
-                               "darkmagenta",
-                               "skyblue")) +
-  scale_fill_manual(values = c("limegreen",
-                               "gold2",
-                               "darkmagenta",
-                               "skyblue")) -> f1A; f1A
+  scale_color_manual(values = c("springgreen2",
+                                "goldenrod2",
+                                "darkorchid2",
+                                "skyblue2")) +
+  scale_fill_manual(values = c("springgreen2",
+                               "goldenrod2",
+                               "darkorchid2",
+                               "skyblue2")) -> f1A; f1A
 
 ### Disturbance groups
 
 groups %>%
   group_by(F, S, Disturbance) %>%
   tally %>%
-  cbind(Label = c("Frequent & severe\n544 species", 
-                  "Frequent & mild\n134 species", 
-                  "Infrequent & severe\n134 species", 
-                  "Infrequent & mild\n545 species")) %>%
+  cbind(Label = c("Frequent & severe\n403 species", 
+                  "Frequent & mild\n95 species", 
+                  "Infrequent & severe\n95 species", 
+                  "Infrequent & mild\n404 species")) %>%
   group_by() %>%
   mutate(F = fct_relevel(F, "Low", "High")) %>%
   mutate(S = fct_relevel(S, "Low", "High")) %>%
@@ -139,7 +140,8 @@ groups %>%
                              "Wetlands - Low disturbance", "Wetlands - High disturbance")) %>%
   mutate(number = as.numeric(Group)) %>%
   ggplot(aes(as.factor(number), Value, color = Group, fill = Group)) + 
-  geom_jitter(width = .25, aes(color = Group), size = 1) +
+  # geom_jitter(width = .25, aes(color = Group), size = .1, alpha = 0.5) +
+  geom_violin(color = "black", draw_quantiles = c(0.25, 0.5, 0.75)) +
   facet_wrap(~ Trait, scale = "free", nrow = 1, strip.position = "left") +
   scale_y_continuous(labels = scales::number_format(accuracy = .1)) +
   xlab("Stress - disturbance species groups") +
@@ -162,21 +164,21 @@ groups %>%
         axis.title.y = element_blank(),
         axis.text = element_text(size = 8, color = "black"),
         plot.margin = unit(c(0.35,0.1,0.1,0.1), "cm")) +
-  scale_color_manual(values = c("limegreen",
-                                 "forestgreen",
-                                 "gold",
+  scale_color_manual(values = c("springgreen2",
+                                 "springgreen4",
+                                 "goldenrod2",
                                  "goldenrod4",
-                                 "darkmagenta",
+                                 "darkorchid2",
                                  "darkorchid4",
-                                 "skyblue",
+                                 "skyblue2",
                                  "skyblue4")) +
-  scale_fill_manual(values = c("limegreen",
-                               "forestgreen",
-                               "gold",
+  scale_fill_manual(values = c("springgreen2",
+                               "springgreen4",
+                               "goldenrod2",
                                "goldenrod4",
-                               "darkmagenta",
+                               "darkorchid2",
                                "darkorchid4",
-                               "skyblue",
+                               "skyblue2",
                                "skyblue4")) -> f1C;f1C
 
 ### PCA
@@ -242,21 +244,21 @@ df2 %>%
         axis.title = element_text(size = 10),
         axis.text = element_text(size = 8, color = "black"),
         plot.margin = unit(c(0.35,0.1,0.1,0.1), "cm")) +
-  scale_color_manual(values = c("limegreen",
-                                "forestgreen",
-                                "gold",
+  scale_color_manual(values = c("springgreen2",
+                                "springgreen4",
+                                "goldenrod2",
                                 "goldenrod4",
-                                "darkmagenta",
+                                "darkorchid2",
                                 "darkorchid4",
-                                "skyblue",
+                                "skyblue2",
                                 "skyblue4")) +
-  scale_fill_manual(values = c("limegreen",
-                               "forestgreen",
-                               "gold",
+  scale_fill_manual(values = c("springgreen2",
+                               "springgreen4",
+                               "goldenrod2",
                                "goldenrod4",
-                               "darkmagenta",
+                               "darkorchid2",
                                "darkorchid4",
-                               "skyblue",
+                               "skyblue2",
                                "skyblue4")) -> f1D; f1D
 
 ### Merge panels

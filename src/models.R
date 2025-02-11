@@ -11,6 +11,7 @@ read.csv("data/disturbance-indicators.csv", fileEncoding = "latin1") %>%
   mutate(S = ifelse(Severity <= median(Severity, na.rm = TRUE), "Low", "High")) %>%
   mutate(Stress = ifelse(M == "High" & T == "Low", "Cold stress", NA)) %>%
   mutate(Stress = ifelse(M == "High" & T == "Mid", "Wetlands", Stress)) %>%
+  mutate(Stress = ifelse(M == "High" & T == "High", "Wetlands", Stress)) %>%
   mutate(Stress = ifelse(M == "Low" & T == "High", "Water stress", Stress)) %>%
   mutate(Stress = ifelse(M == "Low" & T == "Low", "Cold stress", Stress)) %>%
   mutate(Stress = ifelse(M == "Low" & T == "Mid", "Water stress", Stress)) %>%
@@ -27,8 +28,8 @@ merge(read.csv("data/disturbance-germination.csv", fileEncoding = "latin1"),
 
 ### Read tree
 
-phangorn::nnls.tree(cophenetic(ape::read.tree("results/phylo-tree/disturbance.tre")),
-                    ape::read.tree("results/phylo-tree/disturbance.tre"), method = "ultrametric") ->
+phangorn::nnls.tree(cophenetic(ape::read.tree("data/disturbance.tre")),
+                    ape::read.tree("data/disturbance.tre"), method = "ultrametric") ->
   nnls_orig
 
 nnls_orig$node.label <- NULL
@@ -59,26 +60,6 @@ priors <- list(R = list(V = 1, nu = 50),
                         G3 = list(V = 1, nu = 1, alpha.mu = 0, alpha.V = 500),
                         G4 = list(V = 1, nu = 1, alpha.mu = 0, alpha.V = 500)))
 
-
-### Objective 1 (compare eight groups) with interaction
-
-germination %>%
-  mutate(Stress = fct_relevel(Stress, "Low stress")) %>%
-  mutate(Disturbance = fct_relevel(Disturbance, "Low disturbance")) %>%
-  select(animal, species, datasourceGUID, seedlotGUID, nseeds, ngerminated, Group, Stress, Disturbance) %>%
-  na.omit -> germinationDF
-
-MCMCglmm::MCMCglmm(cbind(ngerminated, nseeds - ngerminated) ~ Stress * Disturbance,
-                   random = ~ animal +
-                     species +
-                     datasourceGUID +
-                     seedlotGUID,
-                   family = "multinomial2", pedigree = nnls_orig, prior = priors, data = germinationDF,
-                   nitt = nite, thin = nthi, burnin = nbur,
-                   verbose = FALSE, saveX = FALSE, saveZ = FALSE, saveXL = FALSE, pr = FALSE, pl = FALSE) -> m1.A
-
-save(m1.A, file = "results/models/obj1/m1.A.Rdata")
-
 ### Objective 1 (compare eight groups) without interaction
 
 germination %>%
@@ -94,45 +75,9 @@ MCMCglmm::MCMCglmm(cbind(ngerminated, nseeds - ngerminated) ~ Stress + Disturban
                      seedlotGUID,
                    family = "multinomial2", pedigree = nnls_orig, prior = priors, data = germinationDF,
                    nitt = nite, thin = nthi, burnin = nbur,
-                   verbose = FALSE, saveX = FALSE, saveZ = FALSE, saveXL = FALSE, pr = FALSE, pl = FALSE) -> m1.B
+                   verbose = FALSE, saveX = FALSE, saveZ = FALSE, saveXL = FALSE, pr = FALSE, pl = FALSE) -> m1
 
-save(m1.B, file = "results/models/obj1/m1.B.Rdata")
-
-### Objective 1 (compare eight groups) one factor
-
-germination %>%
-  mutate(Group = fct_relevel(Group, "Low stress - Low disturbance")) %>%
-  select(animal, species, datasourceGUID, seedlotGUID, nseeds, ngerminated, Group, Stress, Disturbance) %>%
-  na.omit -> germinationDF
-
-MCMCglmm::MCMCglmm(cbind(ngerminated, nseeds - ngerminated) ~ Group,
-                   random = ~ animal +
-                     species +
-                     datasourceGUID +
-                     seedlotGUID,
-                   family = "multinomial2", pedigree = nnls_orig, prior = priors, data = germinationDF,
-                   nitt = nite, thin = nthi, burnin = nbur,
-                   verbose = FALSE, saveX = FALSE, saveZ = FALSE, saveXL = FALSE, pr = FALSE, pl = FALSE) -> m1.C
-
-save(m1.C, file = "results/models/obj1/m1.C.Rdata")
-
-### Objective 1 (compare eight groups) one factor no intercept
-
-germination %>%
-  mutate(Group = fct_relevel(Group, "Low stress - Low disturbance")) %>%
-  select(animal, species, datasourceGUID, seedlotGUID, nseeds, ngerminated, Group, Stress, Disturbance) %>%
-  na.omit -> germinationDF
-
-MCMCglmm::MCMCglmm(cbind(ngerminated, nseeds - ngerminated) ~ Group - 1,
-                   random = ~ animal +
-                     species +
-                     datasourceGUID +
-                     seedlotGUID,
-                   family = "multinomial2", pedigree = nnls_orig, prior = priors, data = germinationDF,
-                   nitt = nite, thin = nthi, burnin = nbur,
-                   verbose = FALSE, saveX = FALSE, saveZ = FALSE, saveXL = FALSE, pr = FALSE, pl = FALSE) -> m1.D
-
-save(m1.D, file = "results/models/obj1/m1.D.Rdata")
+save(m1, file = "results/models/obj1/m1.Rdata")
 
 ### Objective 2 model 2.1 (germination drivers in low stress - low disturbance group)
 
@@ -326,23 +271,13 @@ MCMCglmm::MCMCglmm(cbind(ngerminated, nseeds - ngerminated) ~
 
 save(m2.8, file = "results/models/obj2/m2.8.Rdata")
 
+q(save = "no")
+
 ##Model diagnostics
 
-load(file = "results/models/obj1/m1.A.Rdata")
-plot(m1.A) # Model diagnostics
-summary(m1.A) # Model summary
-
-load(file = "results/models/obj1/m1.B.Rdata")
-plot(m1.B) # Model diagnostics
-summary(m1.B) # Model summary
-
-load(file = "results/models/obj1/m1.C.Rdata")
-plot(m1.C) # Model diagnostics
-summary(m1.C) # Model summary
-
-load(file = "results/models/obj1/m1.D.Rdata")
-plot(m1.D) # Model diagnostics
-summary(m1.D) # Model summary
+load(file = "results/models/obj1/m1.Rdata")
+plot(m1) # Model diagnostics
+summary(m1) # Model summary
 
 load(file = "results/models/obj2/m2.1.Rdata")
 plot(m2.1) # Model diagnostics
@@ -378,26 +313,19 @@ summary(m2.8) # Model summary
 
 ### Model summary
 
-write.csv(summary(m1.A)$solutions, "results/models/obj1/summary-m1.A.csv", row.names = FALSE, fileEncoding = "latin1")
-write.csv(summary(m1.B)$solutions, "results/models/obj1/summary-m1.B.csv", row.names = FALSE, fileEncoding = "latin1")
-write.csv(summary(m2.1)$solutions, "results/models/obj2/summary-m2.1.csv", row.names = FALSE, fileEncoding = "latin1")
-write.csv(summary(m2.2)$solutions, "results/models/obj2/summary-m2.2.csv", row.names = FALSE, fileEncoding = "latin1")
-write.csv(summary(m2.3)$solutions, "results/models/obj2/summary-m2.3.csv", row.names = FALSE, fileEncoding = "latin1")
-write.csv(summary(m2.4)$solutions, "results/models/obj2/summary-m2.4.csv", row.names = FALSE, fileEncoding = "latin1")
-write.csv(summary(m2.5)$solutions, "results/models/obj2/summary-m2.5.csv", row.names = FALSE, fileEncoding = "latin1")
-write.csv(summary(m2.6)$solutions, "results/models/obj2/summary-m2.6.csv", row.names = FALSE, fileEncoding = "latin1")
-write.csv(summary(m2.7)$solutions, "results/models/obj2/summary-m2.7.csv", row.names = FALSE, fileEncoding = "latin1")
-write.csv(summary(m2.8)$solutions, "results/models/obj2/summary-m2.8.csv", row.names = FALSE, fileEncoding = "latin1")
+# write.csv(summary(m1)$solutions, "results/models/obj1/summary-m1.csv", row.names = FALSE, fileEncoding = "latin1")
+# write.csv(summary(m2.1)$solutions, "results/models/obj2/summary-m2.1.csv", row.names = FALSE, fileEncoding = "latin1")
+# write.csv(summary(m2.2)$solutions, "results/models/obj2/summary-m2.2.csv", row.names = FALSE, fileEncoding = "latin1")
+# write.csv(summary(m2.3)$solutions, "results/models/obj2/summary-m2.3.csv", row.names = FALSE, fileEncoding = "latin1")
+# write.csv(summary(m2.4)$solutions, "results/models/obj2/summary-m2.4.csv", row.names = FALSE, fileEncoding = "latin1")
+# write.csv(summary(m2.5)$solutions, "results/models/obj2/summary-m2.5.csv", row.names = FALSE, fileEncoding = "latin1")
+# write.csv(summary(m2.6)$solutions, "results/models/obj2/summary-m2.6.csv", row.names = FALSE, fileEncoding = "latin1")
+# write.csv(summary(m2.7)$solutions, "results/models/obj2/summary-m2.7.csv", row.names = FALSE, fileEncoding = "latin1")
+# write.csv(summary(m2.8)$solutions, "results/models/obj2/summary-m2.8.csv", row.names = FALSE, fileEncoding = "latin1")
 
 ### Phylo signal http://www.mpcm-evolution.com/practice/online-practical-material-chapter-11/chapter-11-1-simple-model-mcmcglmm
 
-lambda <- m1.A$VCV[,"animal"]/(m1.A$VCV[,"animal"] + m1.A$VCV[,"units"])
-data.frame(
-  lambda = mean(lambda) %>% round(2),
-  min = coda::HPDinterval(lambda)[, 1] %>% round(2),
-  max = coda::HPDinterval(lambda)[, 2] %>% round(2))
-
-lambda <- m1.B$VCV[,"animal"]/(m1.B$VCV[,"animal"] + m1.B$VCV[,"units"])
+lambda <- m1$VCV[,"animal"]/(m1$VCV[,"animal"] + m1$VCV[,"units"])
 data.frame(
   lambda = mean(lambda) %>% round(2),
   min = coda::HPDinterval(lambda)[, 1] %>% round(2),
@@ -453,10 +381,7 @@ data.frame(
 
 ### Random effects
 
-summary(m1.A)$Gcovariances
-summary(m1.B)$Gcovariances
-summary(m1.C)$Gcovariances
-summary(m1.D)$Gcovariances
+summary(m1)$Gcovariances
 summary(m2.1)$Gcovariances
 summary(m2.2)$Gcovariances
 summary(m2.3)$Gcovariances
@@ -465,4 +390,3 @@ summary(m2.5)$Gcovariances
 summary(m2.6)$Gcovariances
 summary(m2.7)$Gcovariances
 summary(m2.8)$Gcovariances
-

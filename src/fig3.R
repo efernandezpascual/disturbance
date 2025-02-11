@@ -2,7 +2,6 @@ library(tidyverse)
 
 ### Summary table
 
-load(file = "results/models/obj1/m1.Rdata")
 load(file = "results/models/obj2/m2.1.Rdata")
 load(file = "results/models/obj2/m2.2.Rdata")
 load(file = "results/models/obj2/m2.3.Rdata")
@@ -88,13 +87,13 @@ rbind(
   geom_errorbarh(height = .3) +
   geom_vline(xintercept = 0, linetype = "dashed") +
   scale_color_manual(values = c("skyblue4",
-                                "skyblue",
+                                "skyblue2",
                                 "darkorchid4",
-                                "darkmagenta",
+                                "darkorchid2",
                                 "goldenrod4",
-                                "gold",
-                                "forestgreen",
-                                "limegreen")) +
+                                "goldenrod2",
+                                "springgreen4",
+                                "springgreen2")) +
   ggthemes::theme_tufte() +
   theme(text = element_text(family = "sans"),
         strip.background = element_blank(),
@@ -111,19 +110,10 @@ rbind(
         axis.title = element_text(size = 10),
         axis.title.y = element_blank(),
         axis.text.x = element_text(size = 7, color = "black"),
-        axis.text.y = element_text(size = 9,
-                                   color = c("skyblue4",
-                                             "skyblue",
-                                             "darkorchid4",
-                                             "darkmagenta",
-                                             "goldenrod4",
-                                             "gold",
-                                             "forestgreen",
-                                             "limegreen")),
         plot.margin = unit(c(0.1,0.1,0.1,0.1), "cm")) ->
   f3;f3
 
 ## Export
 
 ggsave(f3, file = "results/figures/fig3.png", bg = "white",
-       path = NULL, scale = 1, width = 180, height = 75, units = "mm", dpi = 600)
+       path = NULL, scale = 1, width = 180, height = 70, units = "mm", dpi = 600)

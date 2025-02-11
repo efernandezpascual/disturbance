@@ -17,6 +17,7 @@ read.csv("data/disturbance-indicators.csv", fileEncoding = "latin1") %>%
   mutate(S = ifelse(Severity <= median(Severity, na.rm = TRUE), "Low", "High")) %>%
   mutate(Stress = ifelse(M == "High" & T == "Low", "Cold stress", NA)) %>%
   mutate(Stress = ifelse(M == "High" & T == "Mid", "Wetlands", Stress)) %>%
+  mutate(Stress = ifelse(M == "High" & T == "High", "Wetlands", Stress)) %>%
   mutate(Stress = ifelse(M == "Low" & T == "High", "Drought stress", Stress)) %>%
   mutate(Stress = ifelse(M == "Low" & T == "Low", "Cold stress", Stress)) %>%
   mutate(Stress = ifelse(M == "Low" & T == "Mid", "Drought stress", Stress)) %>%
@@ -97,22 +98,22 @@ cis %>%
   # geom_errorbar(aes(ymin = germination.lower, ymax = germination.upper), width = .1,
   #               position = position_dodge(.9)) +
   scale_fill_manual(values = c(
-    "limegreen",
-    "forestgreen",
-    "gold",
+    "springgreen2",
+    "springgreen4",
+    "goldenrod2",
     "goldenrod4",
-    "darkmagenta",
+    "darkorchid2",
     "darkorchid4",
-    "skyblue",
+    "skyblue2",
     "skyblue4")) +
   scale_color_manual(values = c(
-    "limegreen",
-    "forestgreen",
-    "gold",
+    "springgreen2",
+    "springgreen4",
+    "goldenrod2",
     "goldenrod4",
-    "darkmagenta",
+    "darkorchid2",
     "darkorchid4",
-    "skyblue",
+    "skyblue2",
     "skyblue4")) +
   ggthemes::theme_tufte() +
   xlab("Stress - disturbance species groups") +
@@ -147,9 +148,9 @@ cis %>%
 
 ### Effect size figure
 
-load(file = "results/models/obj1/m1.B.Rdata")
+load(file = "results/models/obj1/m1.Rdata")
 
-summary(m1.B)$solutions %>%
+summary(m1)$solutions %>%
   data.frame %>%
   rownames_to_column(var = "Group")%>%
   filter(! Group == "(Intercept)") %>%
@@ -159,12 +160,12 @@ summary(m1.B)$solutions %>%
                              "High disturbance",
                              "Wetlands", 
                              "Cold stress",
-                             "Drought stress")) %>%
+                             "Water stress")) %>%
   mutate(Group = fct_recode(Group,
                             "High\ndisturbance" = "High disturbance",
                             "Wetlands" = "Wetlands", 
                             "Cold\nstress" = "Cold stress",
-                            "Water\nstress"= "Drought stress")) %>%
+                            "Drought\nstress"= "Water stress")) %>%
   mutate(number = as.numeric(as.factor(Group))) %>%
   # filter(pMCMC <= 0.05) %>%
   ggplot(aes(y = Group, x = post.mean,
@@ -177,9 +178,9 @@ summary(m1.B)$solutions %>%
   geom_errorbarh(height = .3) +
   geom_vline(xintercept = 0, linetype = "dashed", color = "black", size = 1) +
   scale_color_manual(values = c("grey10",
-                                "skyblue",
-                                "darkmagenta",
-                                "gold")) +
+                                "skyblue2",
+                                "darkorchid2",
+                                "goldenrod2")) +
   ggthemes::theme_tufte() +
   theme(text = element_text(family = "sans"),
         strip.background = element_blank(),
@@ -196,11 +197,7 @@ summary(m1.B)$solutions %>%
         axis.title = element_text(size = 10),
         axis.title.y = element_blank(),
         axis.text = element_text(size = 8, color = "black"),
-        axis.text.y = element_text(size = 9,
-                                   color = c("grey10",
-                                             "skyblue",
-                                             "darkmagenta",
-                                             "gold")),
+        axis.text.y = element_text(size = 9),
         plot.margin = unit(c(0.1,0.1,0.1,0.15), "cm")) -> f2b;f2b
 
 ### merge panels

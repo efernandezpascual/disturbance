@@ -1,0 +1,23 @@
+---
+title: "Delayed seed germination to cope with environmental stress and disturbance"
+output: 
+  bookdown::word_document2:
+    reference_docx: template.docx
+    number_sections: false
+bibliography: refs.bib
+csl: ecology-letters.csl
+link-citations: yes
+always_allow_html: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Random factors and phylogenetic effect
+
+In the full model that included the entire germination dataset (i.e. the model testing the first prediction), the random factor with the strongest effect was phylogeny (mean = 1.88, CI = 1.04 – 2.75), followed by data source (mean = 1.14, CI = 0.58 – 1.73), seed lot (mean = 1.02, CI = 0.86 – 1.18) and species (mean = 0.82, CI = 0.56 – 1.07) (**Appendix S1**). In the models for the stress-disturbance groups (i.e. the models for the second prediction), the pattern was similar (**Appendix S1**).
+
+## Delayed seed germination is achieved through different combinations of environmental cues, depending on species preferences for stress and disturbance
+
+Our models support the prediction that different levels of stress and disturbance favor different germination cues as drivers of delayed seed germination and germination phenology. However, we found some deviations from our initial predictions (**Table 1**). A strong response to scarification (i.e. a signal to remove an impermeable seed coat and physical dormancy [@RN3214; @RN5391]) was found to be more likely in species adapted to high disturbance or drought/cold stress. This supports the role of physical dormancy as a way to detect and respond to disturbance events such as fire [@RN4625; @RN5509] but also to delay germination during unfavorable seasons such as dry summers [@RN5037; @RN780; @RN5597]. The response to cold stratification (i.e. a signal to alleviate physiological dormancy [@RN3063]) was strong in species adapted to low disturbance and low stress, as well as in species adapted to cold stress. A positive response to cold stratification in species growing in habitats with an unsuitable cold season for germination (i.e. risk-avoidance of autumn-winter germination) agrees with previous findings [@RN3132; @RN5480; @RN5091]. In addition, our results suggest that in environments without a pronounced suboptimal season for seedling establishment, physiological dormancy as a means to delay germination can still be advantageous, possibly enabling species to avoid competition until gaps in the vegetation have formed. For example, in highly competitive deciduous forest vegetation, delayed seed germination in spring would be advantageous, as this might be the only window-of-opportunity for establishment within an otherwise closed forest canopy [@RN5476]. Average germination temperature (i.e. an environmental signal of the annual temperature cycle [@RN5091; @RN4965; @RN5072]) had a positive effect on most groups (preferring relatively warm germination temperatures) with the exception of drought-stress species. Taken together with the effect of cold stratification, these results reflect the fact that most of the studied European species are spring germinators [@RN3214]. The effect of temperature is stronger (i.e. the preferred germination temperature is even warmer) in species from cold stress habitats, which agrees with the warm-cued germination reported for habitats such as alpine grasslands [@RN4965]. The lack of an effect of average temperature in drought stress species also agrees with the Mediterranean seed germination syndrome, characterized by cold-cued germination [@RN5072; @RN5625]. Finally, alternating temperatures and light are usually interpreted as interchangeable signals of microhabitat factors such as burial depth, canopy closure or water table height [@RN4904; @RN3180; @RN4656]. Our results support this idea, as the effect of these two cues was strong in species from the low stress-low disturbance group, i.e. species adapted to habitats without a marked unfavorable regeneration environment, where microhabitat detection can be most important, signaling favorable gaps such as a forest clearing after tree fall.
