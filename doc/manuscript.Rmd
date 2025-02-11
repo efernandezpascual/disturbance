@@ -34,7 +34,7 @@ Eduardo Fernández-Pascual: Conceptualization; Methodology; Investigation; Data 
 
 # Data accessibility statement
 
-Original datasets, R code for analysis and Rmarkdown code for creation of the manuscript are available at Zenodo [DOI WILL BE INSERTED HERE UPON ACCEPTANCE].
+Original datasets, R code for analysis and Rmarkdown code for creation of the manuscript are available at Zenodo (https://doi.org/10.5281/zenodo.14849555).
 
 \newpage
 
@@ -98,7 +98,7 @@ To test our second prediction that the specific germination cues driving delayed
 
 Predictor variables were centered and scaled so their contribution to the effect sizes could be compared. We used weakly informative priors, with parameter-expanded priors for the random effects [@RN4755]. In all models, random effects included (1) the source of the germination data (to account for between-study variation related to the research group or publication from which the data was extracted), (2) seed lot ID (to account for between-study variation related to differences in experimental settings, seed lot quality and storage conditions, etc.), (3) species identity (to account for between-study variation related to differences between study species' traits) and (4) a reconstructed phylogenetic tree for the study species (to account for shared phylogeny). We used the R package *U.PhyloMaker* [@RN5390] to produce a phylogeny for our species by pruning the updated mega-tree of the seed plants by Smith & Brown [-@RN4754]. In addition, to take into account the potential effect of seed mass on germination responses and species ecologies, we repeated the models with seed mass as a covariable, using the seed mass dataset curated by Carta *et el.* [-@RN5624]. The values of seed mass did not differ between stress-disturbance groups, and the inclusion of seed mass did not affect model outputs for the study variables. Therefore, we kept seed mass out of the analyses for simplicity.
 
-Each model was run for 500,000 MCMC steps, with an initial burn-in phase of 50,000 and a thinning interval of 50 [@RN4756], resulting, on average, in 9,000 posterior distributions. From the resulting posterior distributions, we calculated mean parameter estimates and 95% highest posterior density and credible intervals (CI). We interpreted the significance of model parameters by examining CIs, considering parameters with CIs overlapping with zero as non-significant. We performed all data analyses with R version 4.3.1 [@RN5387], using the R package 'tidyverse' [@RN4662] for data processing and visualization. The original datasets, as well as R code for analysis and creation of the manuscript, can be accessed at Zenodo (see Data Availability Statement).
+Each model was run for 500,000 MCMC steps, with an initial burn-in phase of 50,000 and a thinning interval of 50 [@RN4756], resulting, on average, in 9,000 posterior distributions. From the resulting posterior distributions, we calculated mean parameter estimates and 95% highest posterior density and credible intervals (CI). We interpreted the significance of model parameters by examining CIs, considering parameters with CIs overlapping with zero as non-significant. We performed all data analyses with R version 4.3.1 [@RN5387], using the R package 'tidyverse' [@RN4662] for data processing and visualization. The original datasets, as well as R code for analysis and creation of the manuscript, can be accessed at Zenodo (https://doi.org/10.5281/zenodo.14849555).
 
 # Results
 
