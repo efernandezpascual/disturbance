@@ -1,0 +1,41 @@
+---
+title: "Delayed seed germination to cope with environmental stress and disturbance"
+output: 
+  bookdown::word_document2:
+    reference_docx: template.docx
+    number_sections: false
+bibliography: refs.bib
+csl: journal-of-ecology.csl
+link-citations: yes
+always_allow_html: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Eduardo Fernández-Pascual^1,a^ (<https://orcid.org/0000-0002-4743-9577>); Angelino Carta^2,3^ (<https://orcid.org/0000-0001-8437-818X>); Sergey Rosbakh^4^ (<https://orcid.org/0000-0002-4599-6943>); Borja Jiménez-Alfaro^1^ (<https://orcid.org/0000-0001-6601-9597>); Diana María Cruz-Tejada^2^ (<https://orcid.org/0000-0003-3220-1619>); Markus Wagner^5^ (<https://orcid.org/0000-0002-2263-304X>); Lorenzo Pinzani^6^ (<https://orcid.org/0000-0002-7395-7925>); Katalin Lukács^7^; Shyam S. Phartyal^8^ (<https://orcid.org/0000-0003-3266-6619>)
+
+^1^ Biodiversity Research Institute (IMIB), University of Oviedo - CSIC - Principality of Asturias, Mieres, Spain; ^2^ Department of Biology, Botany Unit, University of Pisa, Pisa, Italy; ^3^ CIRSEC – Centre for Climate Change Impact, University of Pisa, Pisa, Italy; ^4^ Department of Plant and Environmental Sciences, University of Copenhagen, Copenhagen, Denmark; ^5^ UK Centre for Ecology & Hydrology, Wallingford, United Kingdom; ^6^ Department of Science, University of Roma Tre, Rome, Italy; ^7^ 'Lendület' Seed Ecology Research Group, Institute of Ecology and Botany, HUN-REN Centre for Ecological Research, Vácrátót, Hungary; ^8^ School of Ecology and Environment Studies, Nalanda University, Rajgir, India 
+
+^a^ Correspondence: Eduardo Fernández-Pascual, Instituto Mixto de Investigación en Biodiversidad, Campus de Mieres, Edificio de Investigación, 5ª planta, c/ Gonzalo Gutiérrez Quirós s/n, E-33600 Mieres, Spain. Email: [fernandezpeduardo\@uniovi.es](mailto:fernandezpeduardo@uniovi.es){.email}. Telephone: +34 985 10 47 81.
+
+# Statement of authorship
+
+Eduardo Fernández-Pascual: Conceptualization; Methodology; Investigation; Data Curation; Formal Analysis; Visualization; Writing – Original Draft Preparation; Writing – Review & Editing. Angelino Carta: Conceptualization; Methodology; Investigation; Data Curation; Writing – Review & Editing. Sergey Rosbakh: Conceptualization; Investigation; Writing – Review & Editing. Borja Jiménez-Alfaro: Conceptualization; Writing – Review & Editing. Diana María Cruz-Tejada: Investigation; Writing – Review & Editing. Markus Wagner: Investigation; Writing – Review & Editing. Lorenzo Pinzani: Investigation; Writing – Review & Editing. Katalin Lukács: Investigation; Writing – Review & Editing. Shyam S. Phartyal: Investigation; Writing – Review & Editing.
+
+# Acknowledgements
+
+Seed germination data was provided by the SeedArc database (https://doi.org/10.1111/nph.19143). This research was supported by the grant "Laboratorio de Vegetación y Biodiversidad" (IDE/2024/000720, Principality of Asturias-Sekuens-EU-FEDER). Sergey Rosbakh appreciates the financial support provided by the NovoNordisk Foundation (Starting grant NNF22OC0078703).
+
+# Data accessibility statement
+
+Original datasets, R code for analysis and Rmarkdown code for creation of the manuscript are available at Zenodo (https://doi.org/10.5281/zenodo.14849555).
+
+# Conflict of interest statement
+
+None declared.
+
+# Biosketch
+
+This is a research project of the SeedArc germination database (https://www.unioviedo.es/seedarc/). SeedArc is a partnership of seed scientists dedicated to share primary data from seed germination experiments; collaborate in its analyses; build a seed germination database available to the research community; and advance open science in seed ecology.

@@ -5,7 +5,7 @@ output:
     reference_docx: template.docx
     number_sections: false
 bibliography: refs.bib
-csl: ecology-letters.csl
+csl: journal-of-ecology.csl
 link-citations: yes
 always_allow_html: true
 ---
@@ -14,35 +14,25 @@ always_allow_html: true
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-**Running title:** Delayed seed germination, stress and disturbance
-**Keywords:** Plant reproduction, plant regeneration, regeneration niche, seed dormancy, seed germination, delayed development, cold stress, drought stress
-**Type of article:** Letter
-**Number of words in the abstract:** 146
-**Number of words in the main text:** 4753
-**Number of references:** 54
-**Number of figures, tables, and text boxes:** 3 figures and 1 table
-
-Eduardo Fernández-Pascual^1,a^ (<https://orcid.org/0000-0002-4743-9577>); Angelino Carta^2,3^ (<https://orcid.org/0000-0001-8437-818X>); Sergey Rosbakh^4^ (<https://orcid.org/0000-0002-4599-6943>); Borja Jiménez-Alfaro^1^ (<https://orcid.org/0000-0001-6601-9597>); Diana María Cruz-Tejada^2^ (<https://orcid.org/0000-0003-3220-1619>); Markus Wagner^5^ (<https://orcid.org/0000-0002-2263-304X>); Lorenzo Pinzani^6^ (<https://orcid.org/0000-0002-7395-7925>); Katalin Lukács^7^; Shyam S. Phartyal^8^ (<https://orcid.org/0000-0003-3266-6619>)
-
-^1^ Biodiversity Research Institute (IMIB), University of Oviedo - CSIC - Principality of Asturias, Mieres, Spain; ^2^ Department of Biology, Botany Unit, University of Pisa, Pisa, Italy; ^3^ CIRSEC – Centre for Climate Change Impact, University of Pisa, Pisa, Italy; ^4^ Department of Plant and Environmental Sciences, University of Copenhagen, Copenhagen, Denmark; ^5^ UK Centre for Ecology & Hydrology, Wallingford, United Kingdom; ^6^ Department of Science, University of Roma Tre, Rome, Italy; ^7^ 'Lendület' Seed Ecology Research Group, Institute of Ecology and Botany, HUN-REN Centre for Ecological Research, Vácrátót, Hungary; ^8^ School of Ecology and Environment Studies, Nalanda University, Rajgir, India 
-
-^a^ Correspondence: Eduardo Fernández-Pascual, Instituto Mixto de Investigación en Biodiversidad, Campus de Mieres, Edificio de Investigación, 5ª planta, c/ Gonzalo Gutiérrez Quirós s/n, E-33600 Mieres, Spain. Email: [fernandezpeduardo\@uniovi.es](mailto:fernandezpeduardo@uniovi.es){.email}. Telephone: +34 985 10 47 81.
-
-# Statement of authorship
-
-Eduardo Fernández-Pascual: Conceptualization; Methodology; Investigation; Data Curation; Formal Analysis; Visualization; Writing – Original Draft Preparation; Writing – Review & Editing. Angelino Carta: Conceptualization; Methodology; Investigation; Data Curation; Writing – Review & Editing. Sergey Rosbakh: Conceptualization; Investigation; Writing – Review & Editing. Borja Jiménez-Alfaro: Conceptualization; Writing – Review & Editing. Diana María Cruz-Tejada: Investigation; Writing – Review & Editing. Markus Wagner: Investigation; Writing – Review & Editing. Lorenzo Pinzani: Investigation; Writing – Review & Editing. Katalin Lukács: Investigation; Writing – Review & Editing. Shyam S. Phartyal: Investigation; Writing – Review & Editing.
-
-# Data accessibility statement
-
-Original datasets, R code for analysis and Rmarkdown code for creation of the manuscript are available at Zenodo (https://doi.org/10.5281/zenodo.14849555).
-
-\newpage
-
 # Abstract
 
-Seeds of many plant species are programmed to delay germination under various environmental scenarios, despite the higher fitness expected for early germination. Here, we explore the significance of delayed germination by testing the hypothesis that it is a mechanism to cope with stress and disturbance during plant regeneration. By analyzing 14,357 primary germination records representing 997 European species belonging to four stress (low, drought, cold, wetlands) and two disturbance (low, high) groups, we analyzed the likelihood of delayed germination as a function of stress-disturbance using phylogenetical meta-analysis. Delayed germination is more likely in species adapted to cold stress and wetlands, and less likely in species adapted to disturbance. Species adapted to low stress and low disturbance present some degree of delayed germination. Different stress-disturbance groups respond differently to germination cues. Delayed germination is widespread in temperate flowering plants and works as a mechanism to cope with stress, disturbance and competition.
+1. Aim: Seeds of many plant species are programmed not to germinate under various environmental scenarios. Thus, delayed seed germination is widespread, despite the higher fitness expected for earlier germinating seeds. We explore delayed germination by testing the hypothesis that it is a mechanism to cope with stress and disturbance during regeneration.
 
-\newpage
+2. Location: Europe.
+
+3. Time period: 1949-2021.
+
+4. Major taxa studied: Angiosperms.
+
+5. Methods: We retrieved 14,357 records representing 997 species from SeedArc, a global seed germination database. We classified species into four stress groups (low, drought, cold, wetlands) and two disturbance groups (low, high) using their ecological preferences for temperature, moisture and disturbance. We tested the likelihood of delayed germination as a function of stress-disturbance using phylogenetically informed meta-analysis. 
+
+6. Results: Delayed germination is more likely in species adapted to cold stress and wetlands, and less likely in species adapted to disturbance. Species adapted to low stress and low disturbance present some degree of delayed germination. Different stress-disturbance groups respond differently to germination cues. 
+
+7. Main conclusions: Delayed germination is widespread in temperate flowering plants and works as a mechanism to cope with stress, disturbance and competition. The regeneration niche of the angiosperms shows a fundamental divide between those adapted to cold and those adapted to drought.
+
+**Running title:** Delayed seed germination, stress and disturbance
+
+**Keywords:** Plant reproduction, plant regeneration, regeneration niche, seed dormancy, seed germination, delayed development, cold stress, drought stress
 
 # Introduction
 
@@ -54,7 +44,12 @@ To date, the macroecological patterns of delayed seed germination have been stud
 
 Here, we explore the patterns of delayed seed germination in response to stress and disturbance, the underlying drivers of regeneration environment suitability. We perform a meta-analysis of primary germination records using a large dataset representing 14,357 records of 997 species from 80 families of the European flowering plants. Rather than measuring delayed seed germination as the presence/absence of seed dormancy [@RN5480; @RN5091; @RN5392], our meta-analysis considers the multi-faceted responses of seed germination to various cues mapping onto inherent and externally imposed germination delays [@RN5072]. Based on the hypothesis that delayed seed germination is a mechanism to cope with stress and disturbance during the regeneration phase, we test the following two predictions: (1) delayed seed germination is more likely in species adapted to high stress and/or low disturbance; (2) specific germination cues driving delayed seed germination vary depending on species preferences for stress and disturbance following the predictions developed in **Table 1**.
 
-# Material and methods
+```{r, layout="l-body-outset", echo = FALSE}
+t1 <- read.csv("../results/tables/table1.csv", fileEncoding = "latin1", check.names=FALSE)
+knitr::kable(t1, caption = "Environmental cues driving delayed seed germination in the European flowering plants. The table lists the cues included in our meta-analysis. For each cue, the table provides a description of the laboratory experimental treatment used as a proxy of the environmental cue, the theorized ecological function of the cue in regulating germination phenology, and our prediction in regard to the relationship between the cue and species preferences for stress and disturbance.")
+```
+
+# Materials and Methods
 
 ## Seed germination dataset
 
@@ -88,6 +83,10 @@ We classified species in the germination dataset based on their preferences for 
 
 Our classification included four stress groups (**Fig. 1A**, low stress, drought stress, cold stress and wetlands) and two disturbance groups (**Fig. 1B**, low and high), resulting in 8 stress - disturbance groups (**Fig. 1C**). A Principal Component Analysis (PCA) of the indicator values (**Fig. 1D**) supported that our eight groups describe the ecological variability in the studied flora. One axis of variation separated species adapted to low disturbance from species adapted to high disturbance, with disturbance frequency and severity showing high covariation. A second axis, orthogonal to the disturbance axis, ordered species according to their stress group: the central space of this axis was occupied by low stress species, while the two extremes were occupied by species adapted to cold or drought stress. The wetland species were grouped close to the cold stress species.
 
+```{r fig1, echo = FALSE, fig.pos = "H", fig.cap = "Stress-disturbance groups. (A) Combinations of temperature and moisture into four stress groups (low stress, drought stress, cold stress and wetlands). (B) Combinations of disturbance frequency and severity into two disturbance groups (low and high). (C) Distribution of indicator values (temperature, moisture, disturbance frequency and disturbance severity) in each of the eight stress-disturbance groups. (D) Principal Component Analysis (PCA) biplot of the indicator values, with species grouped and colored according to their stress-disturbance group. The labeled arrows indicate the contribution of the indicator values to the PCA axes."}
+knitr::include_graphics("../results/figures/fig1.png")
+```
+
 ## Statistical analysis
 
 We tested the variation in delayed seed germination among stress-disturbance groups by performing a meta-analysis of the germination dataset using binomial generalized mixed models with Bayesian estimation (Markov Chain Monte Carlo generalized linear mixed models, MCMCglmms) as implemented in the R package *MCMCglmm* [@RN4755]. A detailed description and appraisal of the MCMCglmm methodology in the context of seed germination meta-analysis is provided by Carta *et al.* [-@RN5072]. In our study, the response variable is the final germination proportion, i.e. the total number of germinated seeds out of the number of all viable seeds reported at the end of the experiment, based on routine viability assessment. Since in our study the germination test conditions (constant moisture supply and 95% of the tests with incubation temperature in the range 7-26 ºC) were generally adequate for seedling survival and growth, we assume that any significant deviation from 100% final germination represented a signal of delayed seed germination, i.e. of some seeds not having germinated despite immediate conditions having been favorable for seedlings.
@@ -102,11 +101,15 @@ Each model was run for 500,000 MCMC steps, with an initial burn-in phase of 50,0
 
 # Results
 
-## Testing prediction 1
+## Testing prediction 1: delayed seed germination as a function of stress and disturbance
 
 Regarding our prediction that delayed seed germination should be more likely in species adapted to high stress and low disturbance, we found that, independent of experimental conditions (i.e. across germination cues), final germination of species adapted to drought stress was similar to that of low-stress species, while species adapted to cold stress and wetlands had significantly lower germination (**Fig. 2**, detailed model output, including both fixed and random effects in **Supporting Information S3**). In ecological terms, these findings imply that species from temperature-limited and wetland ecosystems are more likely to show delayed seed germination. At the same time, high-disturbance species had significantly higher overall germination, i.e. species that typically occur in high-disturbance habitats tend to germinate more readily across several experimental treatments, and thus are less likely to display delayed seed germination.
 
-## Testing prediction 2
+```{r fig2, echo = FALSE, fig.pos = "H", fig.cap = "Seed germination delay across stress-disturbance groups. Lower germination proportion indicates more delayed germination in the group. (A) Final germination proportions in each of the eight stress-disturbance groups, across all germination records. The dots indicate the final germination proportion in each of the original germination records, and the bars indicate the average proportion per group. (B) Effect sizes of the MCMCglmm testing the effect of stress and disturbance on final germination proportion. The reference level is the low stress - low disturbance group. Dots indicate the posterior mean of the effect size for each stress group and the high disturbance group, and whiskers the 95% credible interval of the effect size. The line of zero-effect is shown: when a credible interval overlaps with the zero-effect line, the effect can be regarded as non-significant. Non-overlapping effects to the left of the zero-effect line indicate that the group has lower seed germination than the reference group, while non-overlapping effects to the left of the zero-effect line indicate that the group has higher seed germination than the reference group. "}
+knitr::include_graphics("../results/figures/fig2.png")
+```
+
+## Testing prediction 2: germination cues driving delayed seed germination
 
 Regarding our prediction that the specific germination cues driving delayed seed germination should vary depending on the species preferences for stress and disturbance (**Table 1**), we found that most stress-disturbance groups responded positively to most germination cues (**Fig. 3**, detailed model outputs in **Supporting Information S3**). That is, independently from stress-disturbance preferences, the species in our pan-European dataset tend to be more likely to germinate after scarification, after cold stratification, at higher and alternating temperatures, and with light. However, the effect sizes of each cue varied among stress-disturbance groups, as shown by non-overlapping credible intervals. Specifically, there were several exceptions to the aforementioned general pattern: 
 
@@ -119,6 +122,10 @@ Regarding our prediction that the specific germination cues driving delayed seed
 4. Alternating temperature: This factor had a positive effect on the low stress and wetland groups, independently of disturbance level; and had a negative effect on the cold stress – low disturbance group.
 
 5. Light: Independent of disturbance, light availability only had a positive effect on the low stress and cold stress groups. 
+
+```{r fig3, echo = FALSE, fig.pos = "H", fig.cap = "Germination cues driving delayed seed germination across stress-disturbance groups. Effect of germination cues (scarification, stratification, average temperature, alternating temperature and light) over the final germination proportions. Dots indicate the posterior mean of the effect size for each cue, and whiskers the 95% credible interval of the effect size. The line of zero-effect is shown: when a credible interval overlaps with the zero-effect line, the effect can be regarded as non-significant. Non-overlapping effects to the left of the zero-effect line indicate that the cue depresses seed germination, while non-overlapping effects to the left of the zero-effect line indicate that the cue promotes seed germination. In separate panels, the figure shows the effect of the germination cues in each of the eight stress-disturbance models."}
+knitr::include_graphics("../results/figures/fig3.png")
+```
 
 In general, these results agreed with our predictions (**Table 1**) with some exceptions: (i) scarification had a strong effect in the groups of species adapted to high disturbance, but also in species adapted to low disturbance and high stress (drought and cold); (ii) cold stratification had a strong effect on species adapted to cold stress, but also on species from the low stress - low disturbance group; and (iii) alternating temperature and light had a strong effect on species adapted to low stress; however, alternating temperatures also had an effect of wetland species while light also had an effect on species from cold stress environments.
 
@@ -144,39 +151,10 @@ In conclusion, this study shows that delayed seed germination is more likely in 
 
 In this work, we have furthered the traditional understanding that delayed seed germination results from unfavorable regeneration environments, by deconstructing the concept of regeneration unfavourability along axes of stress and disturbance. Future studies will need to extend the analysis to other floras, improving our knowledge of tropical and arid biomes, and producing curated data from macroecological experiments that carefully control seed and adult environments, species life forms and functional traits, habitats (e.g. forests vs. shrublands vs. grasslands vs. wetlands) and separate stress factors (e.g. temperature, moisture, light, salinity). Such experiments will continue to shed light on delayed seed germination, which appears to be a widespread functional feature of the seed plants.
 
-# Acknowledgements
-
-Seed germination data was provided by the SeedArc database (https://doi.org/10.1111/nph.19143). This research was supported by the grant "Laboratorio de Vegetación y Biodiversidad" (IDE/2024/000720, Principality of Asturias-Sekuens-EU-FEDER). Sergey Rosbakh appreciates the financial support provided by the NovoNordisk Foundation (Starting grant NNF22OC0078703).
-
-# Competing interests
-
-None declared.
-
 # References
 
 ::: {#refs}
 :::
-
-# Tables
-
-```{r, layout="l-body-outset", echo = FALSE}
-t1 <- read.csv("../results/tables/table1.csv", fileEncoding = "latin1", check.names=FALSE)
-knitr::kable(t1, caption = "Environmental cues driving delayed seed germination in the European flowering plants. The table lists the cues included in our meta-analysis. For each cue, the table provides a description of the laboratory experimental treatment used as a proxy of the environmental cue, the theorized ecological function of the cue in regulating germination phenology, and our prediction in regard to the relationship between the cue and species preferences for stress and disturbance.")
-```
-
-# Figures
-
-```{r fig1, echo = FALSE, fig.pos = "H", fig.cap = "Stress-disturbance groups. (A) Combinations of temperature and moisture into four stress groups (low stress, drought stress, cold stress and wetlands). (B) Combinations of disturbance frequency and severity into two disturbance groups (low and high). (C) Distribution of indicator values (temperature, moisture, disturbance frequency and disturbance severity) in each of the eight stress-disturbance groups. (D) Principal Component Analysis (PCA) biplot of the indicator values, with species grouped and colored according to their stress-disturbance group. The labeled arrows indicate the contribution of the indicator values to the PCA axes."}
-knitr::include_graphics("../results/figures/fig1.png")
-```
-
-```{r fig2, echo = FALSE, fig.pos = "H", fig.cap = "Seed germination delay across stress-disturbance groups. Lower germination proportion indicates more delayed germination in the group. (A) Final germination proportions in each of the eight stress-disturbance groups, across all germination records. The dots indicate the final germination proportion in each of the original germination records, and the bars indicate the average proportion per group. (B) Effect sizes of the MCMCglmm testing the effect of stress and disturbance on final germination proportion. The reference level is the low stress - low disturbance group. Dots indicate the posterior mean of the effect size for each stress group and the high disturbance group, and whiskers the 95% credible interval of the effect size. The line of zero-effect is shown: when a credible interval overlaps with the zero-effect line, the effect can be regarded as non-significant. Non-overlapping effects to the left of the zero-effect line indicate that the group has lower seed germination than the reference group, while non-overlapping effects to the left of the zero-effect line indicate that the group has higher seed germination than the reference group. "}
-knitr::include_graphics("../results/figures/fig2.png")
-```
-
-```{r fig3, echo = FALSE, fig.pos = "H", fig.cap = "Germination cues driving delayed seed germination across stress-disturbance groups. Effect of germination cues (scarification, stratification, average temperature, alternating temperature and light) over the final germination proportions. Dots indicate the posterior mean of the effect size for each cue, and whiskers the 95% credible interval of the effect size. The line of zero-effect is shown: when a credible interval overlaps with the zero-effect line, the effect can be regarded as non-significant. Non-overlapping effects to the left of the zero-effect line indicate that the cue depresses seed germination, while non-overlapping effects to the left of the zero-effect line indicate that the cue promotes seed germination. In separate panels, the figure shows the effect of the germination cues in each of the eight stress-disturbance models."}
-knitr::include_graphics("../results/figures/fig3.png")
-```
 
 # Supporting Information
 
