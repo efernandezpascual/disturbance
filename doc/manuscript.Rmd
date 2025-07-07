@@ -16,19 +16,15 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Abstract
 
-1. Aim: Seeds of many plant species are programmed not to germinate under various environmental scenarios. Thus, delayed seed germination is widespread, despite the higher fitness expected for earlier germinating seeds. We explore delayed germination by testing the hypothesis that it is a mechanism to cope with stress and disturbance during regeneration.
+1. Questions: Seeds of many plant species are programmed not to germinate under various environmental scenarios. Thus, delayed seed germination is widespread, despite the higher fitness expected for earlier germinating seeds. We explore delayed germination by testing the hypothesis that it is a mechanism to cope with stress and disturbance during regeneration.
 
 2. Location: Europe.
 
-3. Time period: 1949-2021.
+3. Methods: We retrieved 14,357 records representing 997 species from SeedArc, a global seed germination database. We classified species into four stress groups (low, drought, cold, wetlands) and two disturbance groups (low, high) using their ecological preferences for temperature, moisture and disturbance. We tested the likelihood of delayed germination as a function of stress-disturbance using phylogenetically informed meta-analysis. 
 
-4. Major taxa studied: Angiosperms.
+4. Results: Delayed germination is more likely in species adapted to cold stress and wetlands, and less likely in species adapted to disturbance. Species adapted to low stress and low disturbance present some degree of delayed germination. Different stress-disturbance groups respond differently to germination cues. 
 
-5. Methods: We retrieved 14,357 records representing 997 species from SeedArc, a global seed germination database. We classified species into four stress groups (low, drought, cold, wetlands) and two disturbance groups (low, high) using their ecological preferences for temperature, moisture and disturbance. We tested the likelihood of delayed germination as a function of stress-disturbance using phylogenetically informed meta-analysis. 
-
-6. Results: Delayed germination is more likely in species adapted to cold stress and wetlands, and less likely in species adapted to disturbance. Species adapted to low stress and low disturbance present some degree of delayed germination. Different stress-disturbance groups respond differently to germination cues. 
-
-7. Main conclusions: Delayed germination is widespread in temperate flowering plants and works as a mechanism to cope with stress, disturbance and competition. The regeneration niche of the angiosperms shows a fundamental divide between those adapted to cold and those adapted to drought.
+5. Conclusions: Delayed germination is widespread in temperate flowering plants and works as a mechanism to cope with stress, disturbance and competition. The regeneration niche of the angiosperms shows a fundamental divide between those adapted to cold and those adapted to drought.
 
 **Running title:** Delayed seed germination, stress and disturbance
 
