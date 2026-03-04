@@ -1,0 +1,38 @@
+---
+title: "Supporting Information S2 Extended methodology for the creation of the stress-disturbance groups."
+output: 
+  bookdown::pdf_document2:
+    number_sections: false
+    toc: false
+bibliography: refs.bib
+csl: journal-of-ecology.csl
+link-citations: yes
+always_allow_html: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r message = FALSE, echo = FALSE, warning = FALSE}
+knitr::knit_hooks$set(inline = function(x) {
+  prettyNum(x, big.mark = ",")
+})
+```
+
+# Stress and disturbance groups
+
+We classified species in the germination dataset based on their preferences for stress and disturbance. To create this classification, we used the species ecological indicator values (EIVs) for temperature, moisture, disturbance frequency and disturbance severity [@RN5488; @RN5486; @RN5101]. EIVs were originally developed based on the distributional limits of adult plants [@RN5671], and should be reliable proxies of the major environmental constraints during seed germination, when compared across the European flora. For example, we can expect a Mediterranean species having a low moisture EIV to have a drought-limited seed germination phenology. Similarly, we can expect an alpine species having a low temperature EIV to have cold-limited seed germination. Furthermore, EIVs are ordinal values, ordering species according to their optima along environmental gradients, and should not be mistaken with continuous numerical values [@RN5671].  Therefore they can be used to create classes suited to test our predictions.
+
+For temperature and moisture, we compared the EIVs provided by Dengler *et al.* [-@RN5488] and Tichý *et al.* [-@RN5486] and verified that (1) their values were comparable and (2) the selection of one or the other did not affect subsequent analysis. Thus, we decided to use the values by Dengler *et al.* [-@RN5488] because they covered more of the species in the germination dataset. For the disturbance EIVs, we used the values of disturbance frequency (log~10~ of the inverse of the estimated mean interval between two consecutive disturbance events, in centuries) and disturbance severity (a proportional value, 0/1, of biomass loss in the community during a disturbance event) provided by Midolo *et al.* [-@RN5101]. In the case of the disturbance indicators, we used the version of the EIVs calculated for the herb layer, since those values reflect better the scale of disturbance affecting regeneration by seed. This is because whole-community disturbance values consider the proportion of biomass that is lost during a disturbance event, and therefore are high for forest communities. For example, *Fagus sylvatica* would be classified as 'low disturbance' considering the herb layer value (severity = 0.12), but as 'high disturbance' using the whole-community value (0.7). 
+
+To create the stress-disturbance classification, we treated temperature and moisture separately, to reflect the separate effects of cold and drought stress. As a first step, we classified each species for each of the two indicators, temperature and moisture. The EIVs of Dengler *et al.* [-@RN5488] are continuous and take values from 0 to 10. Therefore, we classified species into ‘low’, ‘mid’ or ‘high’ temperature and moisture categories if the value of the respective indicator was below 3.3, between 3.3 and 6.7, or above 6.7, respectively.  If a species was in the ‘low’ temperature range, we assigned it to the ‘cold stress’ group, assuming that its habitats are typically characterized by an unfavorable cold season (e.g. with winter frost events) strong enough to affect seedling regeneration. Correspondingly, if a species was in the ‘low’ moisture range, we assigned it to the ‘drought stress’ group, assuming that its habitats are typically affected by an unfavorable dry season (e.g. with summer drought events) similarly strong enough to affect seedling regeneration. There were 17 species that had 'low' values for temperature and moisture; these were species from southern European Mediterranean mountains, and we classified them into the 'cold stress' group assuming that cold temperatures would be the major unfavorable factor during their regeneration, in accordance with the view that the seed germination of Mediterranean mountain species is relatively similar to that of temperate alpine species [@RN698]. Another 13 species had 'low' temperature and 'high' moisture indicators; these were species from Arctic-Alpine bogs and fens, and we also classified them into the 'cold stress' group. The species in the 'mid' range for temperature and moisture went into the 'low stress' group. We also classified as 'low stress' a small group of 21 species that were in the 'high' temperature range but had 'mid' moisture values, assuming that in the European context warm temperatures should not be unfavorable for regeneration if moisture is available. Finally, we created a 'wetland' group for the species with 'mid' temperature and 'high' moisture requirements; these are hydrophytes and helophytes adapted to life in water or flooded substrates. In these habitats, soil waterlogging is primarily dependent on edaphic factors, and hence, they do not fit into the general framework of seasonal unfavorable regeneration environments created by cold or drought stress. There were no species with 'high' values for both temperature and moisture.
+
+The indicators of disturbance frequency and severity were strongly and positively correlated (Pearson's r > 0.7). This correlation suggested that the two disturbance indicators could be merged into one disturbance factor with two levels (i.e. low and high). Consequently, we classified a species as 'low disturbance' if its EIVs for disturbance frequency and severity were below the median value of the EIV; and we classified a species as 'high disturbance' if it did not meet the previous condition. We used as thresholds the median values in our dataset; they were similar to the median values in the whole dataset by Midolo *et al.* [-@RN5101] (frequency: 1.70 vs. 1.61; severity =  0.43 vs. 0.36); and choosing one over the other did not affect the result of the analyses.
+
+Therefore, our final classification included four stress groups (low stress, drought stress, cold stress and wetlands) and two disturbance groups (low and high), resulting in 8 stress - disturbance groups. It must be noted that our high stress-high disturbance groups do not correspond to Grime's 'missing' fourth corner [@RN5531], as our stress groups reflect the favorability of the regeneration environment, rather than productivity. A Principal Component Analysis (PCA) of the indicator values supported that our eight groups describe the ecological variability in the studied flora. One axis of variation separated species adapted to low disturbance from species adapted to high disturbance, with disturbance frequency and severity showing high covariation. A second axis, orthogonal to the disturbance axis, ordered species according to their stress group: the central space of this axis was occupied by low stress species, while the two extremes were occupied by species adapted to cold or drought stress. The wetland species were grouped close to the cold stress species.
+
+# References
+
+::: {#refs}
+:::
