@@ -5,7 +5,7 @@ output:
     reference_docx: template.docx
     number_sections: false
 bibliography: refs.bib
-csl: ecology-letters.csl
+csl: journal-of-vegetation-science.csl
 link-citations: yes
 always_allow_html: true
 ---

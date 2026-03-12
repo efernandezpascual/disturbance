@@ -5,7 +5,7 @@ output:
     reference_docx: template.docx
     number_sections: false
 bibliography: refs.bib
-csl: journal-of-ecology.csl
+csl: journal-of-vegetation-science.csl
 link-citations: yes
 always_allow_html: true
 ---
@@ -14,11 +14,11 @@ always_allow_html: true
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-Eduardo Fernández-Pascual^1,a^ (<https://orcid.org/0000-0002-4743-9577>); Angelino Carta^2,3^ (<https://orcid.org/0000-0001-8437-818X>); Sergey Rosbakh^4^ (<https://orcid.org/0000-0002-4599-6943>); Borja Jiménez-Alfaro^1^ (<https://orcid.org/0000-0001-6601-9597>); Diana María Cruz-Tejada^2^ (<https://orcid.org/0000-0003-3220-1619>); Markus Wagner^5^ (<https://orcid.org/0000-0002-2263-304X>); Lorenzo Pinzani^6^ (<https://orcid.org/0000-0002-7395-7925>); Katalin Lukács^7^; Shyam S. Phartyal^8^ (<https://orcid.org/0000-0003-3266-6619>)
+Eduardo Fernández-Pascual^1, 2, a^ (<https://orcid.org/0000-0002-4743-9577>); Angelino Carta^3,4^ (<https://orcid.org/0000-0001-8437-818X>); Sergey Rosbakh^5^ (<https://orcid.org/0000-0002-4599-6943>); Borja Jiménez-Alfaro^1, 2^ (<https://orcid.org/0000-0001-6601-9597>); Diana María Cruz-Tejada^3^ (<https://orcid.org/0000-0003-3220-1619>); Markus Wagner^6^ (<https://orcid.org/0000-0002-2263-304X>); Lorenzo Pinzani^7^ (<https://orcid.org/0000-0002-7395-7925>); Katalin Lukács^8^; Shyam S. Phartyal^9^ (<https://orcid.org/0000-0003-3266-6619>)
 
-^1^ Biodiversity Research Institute (IMIB), University of Oviedo - CSIC - Principality of Asturias, Mieres, Spain; ^2^ Department of Biology, Botany Unit, University of Pisa, Pisa, Italy; ^3^ CIRSEC – Centre for Climate Change Impact, University of Pisa, Pisa, Italy; ^4^ Department of Plant and Environmental Sciences, University of Copenhagen, Copenhagen, Denmark; ^5^ UK Centre for Ecology & Hydrology, Wallingford, United Kingdom; ^6^ Department of Science, University of Roma Tre, Rome, Italy; ^7^ 'Lendület' Seed Ecology Research Group, Institute of Ecology and Botany, HUN-REN Centre for Ecological Research, Vácrátót, Hungary; ^8^ School of Ecology and Environment Studies, Nalanda University, Rajgir, India 
+^1^ Department of Organismal and Systems Biology, University of Oviedo, Oviedo/Uviéu, Asturias, Spain; ^2^ Biodiversity Research Institute (IMIB), University of Oviedo - CSIC - Principality of Asturias, Mieres, Asturias, Spain; ^3^ Department of Biology, Botany Unit, University of Pisa, Pisa, Italy; ^4^ CIRSEC – Centre for Climate Change Impact, University of Pisa, Pisa, Italy; ^5^ Leibniz University Hannover, Germany; ^6^ UK Centre for Ecology & Hydrology, Wallingford, United Kingdom; ^7^ Department of Science, University of Roma Tre, Rome, Italy; ^8^ 'Lendület' Seed Ecology Research Group, Institute of Ecology and Botany, HUN-REN Centre for Ecological Research, Vácrátót, Hungary; ^9^ School of Ecology and Environment Studies, Nalanda University, Rajgir, India 
 
-^a^ Correspondence: Eduardo Fernández-Pascual, Instituto Mixto de Investigación en Biodiversidad, Campus de Mieres, Edificio de Investigación, 5ª planta, c/ Gonzalo Gutiérrez Quirós s/n, E-33600 Mieres, Spain. Email: [fernandezpeduardo\@uniovi.es](mailto:fernandezpeduardo@uniovi.es){.email}. Telephone: +34 985 10 47 81.
+^a^ Correspondence: Eduardo Fernández-Pascual, Dpto. de Biología de Organismos y Sistemas, c/ Catedrático Rodrigo Uría s/n, E- 33071 Oviedo/Uviéu, Asturias, Spain. Email: fernandezpeduardo@uniovi.es. Telephone: +34985104781.
 
 # Statement of authorship
 
@@ -26,7 +26,7 @@ Eduardo Fernández-Pascual: Conceptualization; Methodology; Investigation; Data 
 
 # Acknowledgements
 
-Seed germination data was provided by the SeedArc database (https://doi.org/10.1111/nph.19143). This research was supported by the grant "Laboratorio de Vegetación y Biodiversidad" (IDE/2024/000720, Principality of Asturias-Sekuens-EU-FEDER). Sergey Rosbakh appreciates the financial support provided by the NovoNordisk Foundation (Starting grant NNF22OC0078703).
+Seed germination data was provided by the SeedArc database (https://doi.org/10.1111/nph.19143). This research was supported by the project SeedAnthropic (PID2024-156390NB-I00) funded by MICIU/ AEI / 10.13039/501100011033/ FEDER, EU; and by the grant "Laboratorio de Vegetación y Biodiversidad" (IDE/2024/000720, Principality of Asturias-Sekuens-EU-FEDER). Sergey Rosbakh appreciates the financial support provided by the NovoNordisk Foundation (Starting grant NNF22OC0078703).
 
 # Data accessibility statement
 
