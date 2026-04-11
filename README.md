@@ -59,7 +59,7 @@ The following materials are available in the folders of this repository:
 - `results` Output of the `R` scripts, including figures, tables, model
   outputs, and appendices.
 - `doc` Files to create the
-  [manuscript](https://github.com/efernandezpascual/disturbance/blob/master/doc/manuscript.html)
+  [manuscript](https://github.com/efernandezpascual/disturbance/blob/master/doc/manuscript.md)
   using `Rmarkdown`.
 
 ## Citation

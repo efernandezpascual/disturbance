@@ -35,7 +35,7 @@ The following materials are available in the folders of this repository:
 * `src` Scripts in `R` language to perform the analyses and produce the figures of the manuscript.
 * `results` Output of the `R` scripts, including figures, tables, model
   outputs, and appendices.
-* `doc` Files to create the [manuscript](https://github.com/efernandezpascual/disturbance/blob/master/doc/manuscript.html) using `Rmarkdown`.
+* `doc` Files to create the [manuscript](https://github.com/efernandezpascual/disturbance/blob/master/doc/manuscript.md) using `Rmarkdown`.
 
 ## Citation
 
