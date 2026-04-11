@@ -1,7 +1,7 @@
 ---
 title: "Delayed seed germination as a strategy to cope with environmental stress and disturbance"
 output: 
-  bookdown::word_document2:
+  bookdown::github_document2:
     reference_docx: template.docx
     number_sections: false
 bibliography: refs.bib
@@ -13,6 +13,12 @@ always_allow_html: true
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
+
+Eduardo Fernández-Pascual^1,2,a^ (<https://orcid.org/0000-0002-4743-9577>); Angelino Carta^3,4^ (<https://orcid.org/0000-0001-8437-818X>); Sergey Rosbakh^5^ (<https://orcid.org/0000-0002-4599-6943>); Borja Jiménez-Alfaro^1,2^ (<https://orcid.org/0000-0001-6601-9597>); Diana María Cruz-Tejada^3^ (<https://orcid.org/0000-0003-3220-1619>); Markus Wagner^6^ (<https://orcid.org/0000-0002-2263-304X>); Lorenzo Pinzani^7^ (<https://orcid.org/0000-0002-7395-7925>); Katalin Lukács^8^; Shyam S. Phartyal^9^ (<https://orcid.org/0000-0003-3266-6619>)
+
+^1^ Department of Organismal and Systems Biology, University of Oviedo, Oviedo/Uviéu, Asturias, Spain; ^2^ Biodiversity Research Institute (IMIB), University of Oviedo - CSIC - Principality of Asturias, Mieres, Asturias, Spain; ^3^ Department of Biology, Botany Unit, University of Pisa, Pisa, Italy; ^4^ CIRSEC – Centre for Climate Change Impact, University of Pisa, Pisa, Italy; ^5^ Leibniz University Hannover, Germany; ^6^ UK Centre for Ecology & Hydrology, Wallingford, United Kingdom; ^7^ Department of Science, University of Roma Tre, Rome, Italy; ^8^ 'Lendület' Seed Ecology Research Group, Institute of Ecology and Botany, HUN-REN Centre for Ecological Research, Vácrátót, Hungary; ^9^ Department of Forestry, School of Earth Science and NRM, Mizoram University, Aizawl, India 
+
+^a^ Correspondence: Eduardo Fernández-Pascual, Dpto. de Biología de Organismos y Sistemas, c/ Catedrático Rodrigo Uría s/n, E- 33071 Oviedo/Uviéu, Asturias, Spain. Email: fernandezpeduardo@uniovi.es. Telephone: +34985104781.
 
 # Abstract
 
@@ -158,8 +164,20 @@ In this work, we have furthered the traditional understanding that delayed seed 
 
 # Supporting Information
 
-**Appendix S1** Geographical, phylogenetic and habitat representativeness of the seed germination dataset.
+[**Appendix S1**](https://github.com/efernandezpascual/disturbance/blob/master/results/supplementary/Appendix-S1.pdf) Geographical, phylogenetic and habitat representativeness of the seed germination dataset.
 
-**Appendix S2** Extended methodology for the creation of the stress-disturbance groups.
+[**Appendix S2**](https://github.com/efernandezpascual/disturbance/blob/master/results/supplementary/Appendix-S2.pdf) Extended methodology for the creation of the stress-disturbance groups.
 
-**Appendix S3** Model syntax and detailed output summaries for the meta-analysis models.
+[**Appendix S3**](https://github.com/efernandezpascual/disturbance/blob/master/results/supplementary/Appendix-S3.pdf) Model syntax and detailed output summaries for the meta-analysis models.
+
+# Data accessibility statement
+
+Original datasets, R code for analysis and Rmarkdown code for creation of the manuscript are available at Zenodo (https://doi.org/10.5281/zenodo.14849555).
+
+# Statement of authorship
+
+Eduardo Fernández-Pascual: Conceptualization; Methodology; Investigation; Data Curation; Formal Analysis; Visualization; Writing – Original Draft Preparation; Writing – Review & Editing. Angelino Carta: Conceptualization; Methodology; Investigation; Data Curation; Writing – Review & Editing. Sergey Rosbakh: Conceptualization; Investigation; Writing – Review & Editing. Borja Jiménez-Alfaro: Conceptualization; Writing – Review & Editing. Diana María Cruz-Tejada: Investigation; Writing – Review & Editing. Markus Wagner: Investigation; Writing – Review & Editing. Lorenzo Pinzani: Investigation; Writing – Review & Editing. Katalin Lukács: Investigation; Writing – Review & Editing. Shyam S. Phartyal: Investigation; Writing – Review & Editing.
+
+# Acknowledgements
+
+Seed germination data was provided by the SeedArc database (https://doi.org/10.1111/nph.19143). This research was supported by the project SeedAnthropic (PID2024-156390NB-I00) funded by MICIU/ AEI / 10.13039/501100011033/ FEDER, EU; and by the grant "Laboratorio de Vegetación y Biodiversidad" (IDE/2024/000720, Principality of Asturias-Sekuens-EU-FEDER). Sergey Rosbakh appreciates the financial support provided by the NovoNordisk Foundation (Starting grant NNF22OC0078703).
