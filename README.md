@@ -68,7 +68,7 @@ Please cite the repository, datasets and article as:
 
 > Eduardo Fernández-Pascual; Angelino Carta; Sergey Rosbakh; Borja
 > Jiménez-Alfaro; Diana María Cruz-Tejada; Markus Wagner; Lorenzo
-> Pinzani; Katalin Lukács; Shyam S. Phartyal. (2025) Delayed seed
+> Pinzani; Katalin Lukács; Shyam S. Phartyal. (2026) Delayed seed
 > germination as a strategy to cope with environmental stress and
 > disturbance. *Journal of Vegetation Science*.
 > <https://doi.org/10.1111/jvs.70140>
